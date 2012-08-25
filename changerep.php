@@ -4,6 +4,9 @@
 //Updated : 15:43, 25,aug,2012
 //Description : It changes/display points of the user
 
+require_once('connect_db.php');
+require('mysql_class.php');
+
 //GETTING VALUES FROM URL
 $siteid = $_GET["siteid"];
 $sitekey = $_GET["sitekey"];
@@ -14,7 +17,17 @@ $mysiteonly = $_GET["mysiteonly"];
 
 //ADD POINTS
 if(isset($points)){
-
+	//get if site has permission for that user
+	$perm = new mysql("permission");
+	$res = $perm->select('userid','siteid='.$siteid.'siteuserid='.$usid);
+	if(isset($res)){
+	   //now update further
+	   echo "FULL";
+	}
+	else{
+	   //return -1 tupple to show error
+	   echo "EMPTY";
+	}
 }
 //GET POINTS
 else{
