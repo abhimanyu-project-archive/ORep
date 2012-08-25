@@ -48,6 +48,8 @@
 	}
 		if($flag == true)
 		{
+			
+			echo "<a href='logout.php'>Log Out</a>";
 			$parameter="username=\"".$user."\"";
 			//echo $parameter;
 			$query="SELECT * FROM userinfo WHERE " . $parameter . ";";
