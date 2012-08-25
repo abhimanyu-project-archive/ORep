@@ -32,9 +32,9 @@ function getssid()
     //$authtable=$siteinfo->select("*",$qstring);
     $query = "SELECT * FROM siteinfo WHERE " . $qstring . ";";
     global $con;
-    $aut_table = NULL;
+    $auth_table = NULL;
     $auth_table = mysql_query($query, $con);
-
+    echo $auth_table;
     if (!mysql_fetch_row($auth_table))
    {
 	$result['res']=false;
