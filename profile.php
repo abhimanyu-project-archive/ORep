@@ -48,6 +48,14 @@
 	}
 		if($flag == true)
 		{
+			$parameter="username=\"".$user."\"";
+			//echo $parameter;
+			$query="SELECT * FROM userinfo WHERE " . $parameter . ";";
+			global $con;
+			$result=NULL;	
+			$result = mysql_query($query, $con);	
+			$row=mysql_fetch_array($result);
+
 			$_SESSION['username'] = $user;
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
