@@ -36,7 +36,9 @@ if(isset($points)){
 	   $res1 = mysql_query($query, $con);
 	   $row1 = mysql_fetch_array($res1);
 	   $weight = $row['weight'];
+	   echo $weight;
 	   $val = intval($weight) * $val;
+	   echo"-->".$val;
 	   if($val<0){
 	   	$val = 0 - $val;
 		echo $val;
