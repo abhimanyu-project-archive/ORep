@@ -4,19 +4,31 @@
 <head>
 
 <link href="css/bootstrap.css" rel="stylesheet">
-<?php   include 'connect_db.php';
-        include 'mysql_class.php';
+<?php 
+	 session_start();
+	 include 'connect_db.php';
+        //include 'mysql_class.php';
 ?>
 
 
 
 
 <?php
-	$user=$_POST["username"];
-	$pass=$_POST["password"];
-	$pass=md5($pass);
-	if($user!=NULL && $pass!=NULL)
+	$flag = false;
+
+	if(isset[$_SESSION['username']])
 	{
+		$user = $_SESSION['USERNAME'];
+		$flag = true;
+	}
+	else
+	{
+		$user=$_POST["username"];
+		$pass=$_POST["password"];
+
+		$pass=md5($pass);
+		if($user!=NULL && $pass!=NULL)
+		{
 		
 		//$dbaccess=new mysql("userinfo");
 		$parameter="username=\"".$user."\"";
@@ -30,6 +42,12 @@
 		{
 			
 			//user authenticated,give details
+			$flag = true;
+		}
+	}
+		if($flag == true)
+		{
+			$_SESSION['username'] = $user;
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
 			echo "<br><br><div align='center'>";
@@ -61,9 +79,9 @@
                         }
 
 			echo "</div>";
+			die();
 		}
-	die();
-	}
+	
 
 ?>
 </head>
