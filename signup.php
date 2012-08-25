@@ -50,10 +50,6 @@
 
 				
 		}
-		else
-		{
-			die("you are not permitted to acces this page on the server");
-		}
 
 	?>
     </head>
