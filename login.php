@@ -74,8 +74,10 @@
 		<div id = "loginform" align="center">
 		<legend>Login</legend>
 		<input type='hidden' name='submitted' id='submitted' value='1'/>
-		UserName*:<input type='text' name='username' id='username'  maxlength="50"/>
-		Password*:<input type='password' name='password' id='password' maxlength="50"/>
+		UserName*:&nbsp <input type='text' name='username' id='username'  maxlength="50"/>
+		<br>
+
+		Password*&nbsp &nbsp: &nbsp <input type='password' name='password' id='password' maxlength="50"/>
 		<br>
 		<input type='submit' name='Submit' value='Submit'/>
 		</div>
