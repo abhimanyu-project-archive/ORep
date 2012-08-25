@@ -60,7 +60,13 @@
 
 					if(empty($row["userid"]))
 					{
-						$query = "insert into userinfo values('".$userid."', '".$username."', '-1', '".md5($pass)."')";
+						$query = "insert into userinfo values('".$userid."', '".$user."', '0', '".md5($pass)."')";
+						echo $query."\n";
+						mysql_query($query);
+
+						$query = "create table user_".$userID." (siteid char(20), 
+											tag varchar(50), 
+											points float)";
 						echo $query."\n";
 						mysql_query($query);
 						echo "successfully inserted";
