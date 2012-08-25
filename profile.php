@@ -1,9 +1,9 @@
 <html>
 
 
-<body>
+<head>
 
-<link href="css/bootstrap.css" rel="stylesheet"
+<link href="css/bootstrap.css" rel="stylesheet">
 <?php
    require_once('mysql_class.php');
 ?>
@@ -42,8 +42,8 @@
 	}
 
 ?>
-
-
+</head>
+<body>
 
 <form id='login' action='profile.php' method='post' accept-charset='UTF-8'>
         <fieldset >
@@ -59,12 +59,10 @@
         </fieldset>
     </form>
 
-<form id='signup' action='profile.php' method='post' accept-charset='UTF-8'>
-
 <br>
 <br>
 <div align="center">
-<a href="http://localhost/ORep/register.php" ><b>Register whit Karma!</b></a>
+<a href="http://localhost/ORep/register.php" ><b>Register with Karma!</b></a>
 </div>
-
+</body>
 </html>
