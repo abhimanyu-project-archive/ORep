@@ -4,6 +4,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
 	<?php
+		require_once('basicfun.php');
 		define('server', 'localhost');
 		define('database', 'orep');
 		define('username', 'orepuser');
