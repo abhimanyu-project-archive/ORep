@@ -36,8 +36,9 @@
 			echo "<strong>welcome" . $user . "</strong>";
 			echo "<br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
-			//$dbaccess=new mysql("$userid");
-			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid;";
+			
+
+			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points);";
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result1))
@@ -48,7 +49,7 @@
 				echo "<br>Points:" . $row["SUM(points)"];
 			}
 
-			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag;";
+			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points);";
                         $result=NULL;   
                         $result1 = mysql_query($query, $con);
                         while($row=mysql_fetch_array($result1))
