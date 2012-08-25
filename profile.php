@@ -32,7 +32,7 @@
 			//user authenticated,give details
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
-	<strong>		echo "welcome" . $user;</strong>
+	{strong}		echo "welcome" . $user;{strong}
 			echo $gross;	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM user_".$userid.";";
