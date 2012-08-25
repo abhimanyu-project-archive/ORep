@@ -44,10 +44,10 @@
 			{
 				$row = mysql_fetch_array($result);
 				$siteid = $row["siteid"];
-				$query = "delete from ssidtable where ssid='".$ssid."'";
+				//$query = "update ssidtable set userid=".$where ssid='".$ssid."'";
 				//$parameter = "ssid='".$ssid."'";
 				//$ssidaccess -> delete($parameter);
-				mysql_query($query);
+				//mysql_query($query);
 
 				if(isset($user) && isset($password))
 				{
@@ -81,8 +81,9 @@
 							if(!($rows>0))
 							{
 								$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
-	
-								//$dbaccess2 -> insert(array($siteid, $userid, $siteuserid));
+								mysql_query($query);
+								$query = "update ssidtable set userid='".$siteuserid."' where ssid='".$ssid."'";
+								mysql_query($query);
 								break;
 							}
 						}
