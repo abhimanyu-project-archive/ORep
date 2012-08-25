@@ -22,7 +22,7 @@
 
 		$user = $_POST["username"];
 		$pass = $_POST["password"];
-		$ssid = $_GET["ssid"];
+		$ssid = $_POST["ssid"];
 		$submitted = $_POST["submitted"];
 
 		if(isset($ssid) || isset($submitted))		
