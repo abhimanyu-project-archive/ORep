@@ -24,8 +24,8 @@ function getssid()
         $result['error']="SiteKey Ommitted";
         return $result;
     }
-    $siteid = SanitizeForSQL(trim($_GET['siteid']));
-    $sitekey = SanitizeForSQL(trim($_GET['sitekey']));
+    $siteid = $_GET['siteid'];
+    $sitekey = $_GET['sitekey'];
     $qstring = "siteid='".$siteid."' AND "."sitekey='".$sitekey."'";
     $authtable=siteinfo.select("*",$qstring);
 
