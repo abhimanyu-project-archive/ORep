@@ -14,7 +14,7 @@
 <?php
 	$user=$_POST["username"];
 	$pass=$_POST["password"];
-
+	$pass=md5($pass);
 	if($user!=NULL && $pass!=NULL)
 	{
 		
@@ -32,26 +32,22 @@
 			//user authenticated,give details
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
-			echo "welcome" . $user;
+			echo "<strong>welcome" . $user . "</strong>";
 			echo $gross;	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM user_".$userid.";";
-			$con; 
-			echo "  1";
-			$result=NULL;
-			echo "  2";	
-			echo $con;
-			$result = mysql_query($query, $con);
-			echo "  3";
-			echo $result;
-			while($row==mysql_fetch_array($result))
+			$result=NULL;	
+			$result1 = mysql_query($query, $con);
+			while($row=mysql_fetch_array($result1))
 			{
+				echo "   1" . $row;	
 				echo $row["siteid"];
 				echo $row["tag"];	
 				echo $row["points"];
 			}
 			
 		}
+	die();
 	}
 
 ?>
