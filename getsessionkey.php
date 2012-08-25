@@ -28,7 +28,8 @@ function getssid()
     $siteid = $_GET['siteid'];
     $sitekey = $_GET['sitekey'];
     $qstring = "siteid='".$siteid."' AND "."sitekey='".$sitekey."'";
-    $authtable=$siteinfo->select("*",$qstring);
+    echo $qstring;	
+    //$authtable=$siteinfo->select("*",$qstring);
 
    if (!(mysql_fetch_array($authtable)))
    {
