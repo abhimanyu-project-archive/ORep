@@ -40,9 +40,10 @@
 
 					$row = mysql_fetch_array($result);
 
-					if(!isset($row["userid"]))
+					if(empty($row["userid"]))
 					{
-						$dbaccess -> insert(array($userid, $username, -1, md5($pass)));
+						$dbaccess -> insert(array($userid, $username, "-1", md5($pass)));
+						echo "successfully inserted";
 						break;
 					}
 				}
