@@ -36,6 +36,7 @@
 			echo $gross;	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM".$userid.";";
+			$con; 
 			echo "  1";
 			$result=NULL;
 			echo "  2";	
