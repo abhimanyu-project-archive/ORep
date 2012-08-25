@@ -20,14 +20,14 @@
 
 		$result = $ssidaccess -> select("*", $parameter);
 		//$row = mysql_fetch_array($result);
-		if(!empty($result))
+		if(isset($result))
 		{
 			$row = mysql_fetch_array($result);
 			$siteid = $row["siteid"];
 			$parameter = "ssid=".$ssid;
 			$ssidaccess -> delete($parameter);
 
-			if(!(empty($user) || empty($password)))
+			if(isset($user) && isset($password))
 			{
 				$dbaccess = new mysql("userinfo");
 				$parameter = "username=".$user;
@@ -50,7 +50,7 @@
 
 						$row = mysql_fetch_array($result);
 
-						if(empty($row["siteuserid"]))
+						if(!isset($row["siteuserid"]))
 						{
 							$dbaccess2 -> insert(array($siteid, $userid, $siteuserid));
 						}
