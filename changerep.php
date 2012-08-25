@@ -25,7 +25,17 @@ if(isset($points)){
 	$num_rows = mysql_num_rows($res);
 	if($num_rows > 0){
 	   //now update further
-	   echo "FULL";
+	   $row = mysql_fetch_array($result);
+	   $userid = $row['userid'];
+	   $val = intval($points);
+
+	   //UPDATE GROSS POINTS IN USERINFO
+	   global $con;
+	   if($val<0){
+	   	$val = 0 - $val;
+		echo $val;
+	   	$string = "UPDATE userinfo SET globalpoint=globalpoint-".$val." WHERE userid="."'".$userid."'";
+	   }
 	}
 	else{
 	   //return -1 tupple to show error
