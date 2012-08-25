@@ -26,7 +26,7 @@ function getssid()
     }
     $siteid = SanitizeForSQL(trim($_GET['siteid']));
     $sitekey = SanitizeForSQL(trim($_GET['sitekey']));
-    $qstring = "siteid=".$siteid." AND "."sitekey=".$sitekey;
+    $qstring = "siteid='".$siteid."' AND "."sitekey='".$sitekey."'";
     $authtable=siteinfo.select("*",$qstring);
 
    if (!(mysql_fetch_array($authtable)))

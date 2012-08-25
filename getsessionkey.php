@@ -37,7 +37,7 @@ function getssid()
    }
    else
    {
-	$ssid=random_gen(20);
+	$ssid="asdfasdf";//random_gen(20);
 	$qstring ="'".$siteid."','".$ssid."'";
 	$ssidtable=siteinfo.insert($qstring);	
 	$result['res']=true;
