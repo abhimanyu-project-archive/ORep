@@ -91,10 +91,32 @@ if($num_rows3 > 0){//SITE IS VALID
 	}
 	//GET POINTS
 	else{
+	   	$temp = "user_".$userid;
 		$mysite = $_GET["mysiteonly"];
-		echo "EMPTY POINTS!!";
+	//	echo "EMPTY POINTS!!";
 		$tag_array = explode(",",$tag);
-		echo $tag_array[1];
+		//echo $tag_array[1];
+
+		//**GET GROSS POINTS**//
+		$query1 = "select globalpoint from userinfo where userid="."'".$userid."'";
+		$ans = mysql_fetch_array(mysql_query($query1, $con));
+		$global =  $ans['globalpoint'];
+		//**DONE GROSS**//
+
+		//** GROSS SITE POINTS **//
+		$query2 = "SELECT SUM( points ) AS OrderTotal FROM ".$temp." WHERE siteid = '".$siteid."'";
+	//	echo $query2;
+		$ans2 = mysql_fetch_array(mysql_query($query2, $con));
+		$gross_site =  $ans2['OrderTotal'];
+		if($mysite == 1){ //SITE ONLY
+
+		$query3 = "SELECT SUM( points ) AS OrderTotal FROM ".$temp." WHERE siteid = '".$siteid."' && ( tag='".$tag_array[0]."'||tag='".$tag_array[1]."')";
+		echo $query3;
+		$ans3 = mysql_fetch_array(mysql_query($query3, $con));
+		//$global =  $ans3['globalpoint'];
+
+
+		}
 	}
 	}	
 	else{
