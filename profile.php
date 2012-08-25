@@ -15,15 +15,18 @@
 <?php
 	$user=$_POST["username"];
 	$pass=$_POST["password"];
-	
-	if(isset($user) && isset($password))
+
+	if($user!=NULL && $pass!=NULL)
 	{
+		echo "ifwef";
 		$dbaccess=new mysql("userinfo");
 		$parameter="username=\"".$user."\"";
 		$result=$dbaccess->select("*",$parameter);	
 		$raw=mysql_fetch_array($result);
+		
 		if($row["passwordhash"]==$pass)
 		{
+			
 			//user authenticated,give details
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
