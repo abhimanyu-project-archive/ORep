@@ -34,7 +34,7 @@
 
 			//$row = mysql_fetch_array($result);
 			$rows = mysql_num_rows($result);
-			if($result > 0)
+			if($rows > 0)
 			{
 				echo "The username already exists";
 
