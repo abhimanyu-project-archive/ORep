@@ -19,7 +19,7 @@ $mysiteonly = $_GET["mysiteonly"];
 if(isset($points)){
 	//get if site has permission for that user
 	$perm = new mysql("permission");
-	$string = "siteid='".$siteid."', siteuserid='".$usid."'";
+	$string = "siteid='".$siteid."', siteuserid='".$usid;
 	$res = $perm->select('userid',$string);
 	if(isset($res)){
 	   //now update further
