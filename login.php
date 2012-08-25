@@ -14,7 +14,9 @@
 		$user = $_POST["username"];
 		$pass = $_POST["password"];
 		$ssid = $_GET["ssid"];
-		
+
+		if(isset($ssid))		
+		{
 		$ssidaccess = new mysql("ssidtable");
 		$parameter = "ssid=".$ssid;
 
@@ -59,6 +61,7 @@
 
 				
 			}
+		}
 		}
 
 	?>

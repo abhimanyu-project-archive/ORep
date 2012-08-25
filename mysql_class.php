@@ -65,7 +65,7 @@ class mysql
             if ($arg_count == 2) {
                 $what = func_get_arg(0);
                 $extra = func_get_arg(1);
-                $query = "SELECT " . $what . " FROM " . $this->table . " " . $extra . ";";
+                $query = "SELECT " . $what . " FROM " . $this->table . " WHERE " . $extra . ";";
                 return $this->execute($query);
             }
     }
