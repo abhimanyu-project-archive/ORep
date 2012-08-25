@@ -70,7 +70,7 @@
 <br>
 <br>
 <div align="center">
-<a href="register.php" ><b>Register with Karma!</b></a>
+<a href="signup.php" ><b>Register with Karma!</b></a>
 </div>
 </body>
 </html>
