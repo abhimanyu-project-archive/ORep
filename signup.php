@@ -29,6 +29,7 @@
 			//$result = $dbaccess -> select("*", $parameter);
 			
 			$query = "select * from userinfo where username='".$user."'";
+			echo $query."\n";
 			$result = mysql_query($query);
 
 			$row = mysql_fetch_array($result);
@@ -40,10 +41,12 @@
 			{
 
 				$userid = random_gen(20);
+				echo "userid: ". $userid. "\n";
 
 				while(1)
 				{
 					$query = "select * from userinfo where userid='".$userid."'";
+					echo $query."\n";
 					$result = mysql_query($query);
 
 					$row = mysql_fetch_array($result);
@@ -51,6 +54,7 @@
 					if(empty($row["userid"]))
 					{
 						$query = "insert into userinfo values('".$userid."', '".$username."', '-1', '".md5($pass)."')";
+						echo $query."\n";
 						mysql_query($query);
 						echo "successfully inserted";
 						break;
