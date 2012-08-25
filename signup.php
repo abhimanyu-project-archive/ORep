@@ -12,7 +12,7 @@
 		$con = mysql_connect(server, username, password);
 		$db = mysql_select_db(database, $con) or die("Unable to select database")
 
-		//include 'mysql_class.php';
+		require_once('basicfun.php');
 	?>
 
 
