@@ -22,8 +22,8 @@
 		$pass = $_POST["password"];
 		//$submitted = $_POST["submitted"];
 
-		echo $user. "   ". $password . "\n";
-		if(isset($user) && isset($password))
+		echo $user. "   ". $pass . "\n";
+		if(isset($user) && isset($pass))
 		{
 			$result=NULL;
 			//$result = $dbaccess -> select("*", $parameter);
