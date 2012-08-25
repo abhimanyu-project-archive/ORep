@@ -34,7 +34,7 @@ function getssid()
     global $con;
     $auth_table = NULL;
     $auth_table = mysql_query($query, $con);
-    echo $auth_table;
+    //echo $auth_table;
     if (!mysql_fetch_row($auth_table))
    {
 	$result['res']=false;
@@ -45,7 +45,8 @@ function getssid()
    {
 	$ssid=random_gen(20);
 	$qstring ="'".$siteid."','".$ssid."'";
-	//$ssidtable=$ssidtable.insert($qstring);	
+	$query="INSERT into ssidtable values (".$qstring.");";	
+	$insert_result=mysql_query($query,$con);
 	$result['res']=true;
         $result['ssid']=$ssid;  
 	return $result;
