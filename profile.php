@@ -40,6 +40,7 @@
 			echo "  1";
 			$result=NULL;
 			echo "  2";	
+			echo $con;
 			$result = mysql_query($query, $con);
 			echo "  3";
 			echo $result;
