@@ -43,6 +43,7 @@ function getssid()
 	//$ssidtable=$ssidtable.insert($qstring);	
 	$result['res']=true;
         $result['ssid']=$ssid;  
+	return $result;
    }
 }
 
