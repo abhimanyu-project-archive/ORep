@@ -7,11 +7,11 @@ $siteinfo =new mysql("ssidtable");
 echo "Wow";
 function getssid()
 {
-    $result = [
+    $result = array(
                'res' => false,
                'ssid' => "",
                'error' => "",
-              ];
+              );
     echo "Boom";
     if(empty($_GET['siteid']))
     {
