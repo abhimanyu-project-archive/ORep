@@ -37,15 +37,13 @@
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM user_".$userid.";";
 			$con; 
-			echo "  1";
-			$result=NULL;
-			echo "  2";	
-			echo $con;
+			$result=NULL;	
 			$result = mysql_query($query, $con);
-			echo "  3";
 			echo $result;
-			while($row==mysql_fetch_array($result))
+
+			while($row=mysql_fetch_array($result))
 			{
+				echo "   1" . $row;	
 				echo $row["siteid"];
 				echo $row["tag"];	
 				echo $row["points"];
