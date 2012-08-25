@@ -1,6 +1,4 @@
 <?php
-// mysql_class.php
-// By: Yugal Jindle
 
 // Class for performing operations on the database
 class mysql
@@ -67,9 +65,9 @@ class mysql
             if ($arg_count == 2) {
                 $what = func_get_arg(0);
                 $extra = func_get_arg(1);
-                $query = "SELECT " . $what . " FROM " . $this->table . " WHERE " . $extra . ";";
+                $query = "SELECT " . $what . " FROM " . $this->table . " " . $extra . ";";
                 return $this->execute($query);
-            }//select("*","sitename=gwgguwuww,jwjwjw")
+            }
     }
 
     // (Private) Function to execute the framed SQL Query
@@ -88,7 +86,7 @@ class mysql
     {
         global $con;
         echo mysql_error($con) . '<br />'; // For Debugging Purposes Only
-        // die('error: ' . $query); // Shouldn't be used due to Security Reason - Error shouldn't be displayed in any case
+        die('error: ' . $query); // Shouldn't be used due to Security Reason - Error shouldn't be displayed in any case
         echo "Database Error !!!";
     }
 
@@ -109,4 +107,7 @@ class mysql
         $this->execute($query);
     }
 }
+
+
+
 ?>
