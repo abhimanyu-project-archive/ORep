@@ -22,7 +22,7 @@
 		$pass = $_POST["password"];
 		//$submitted = $_POST["submitted"];
 
-
+		echo $user. "   ". $password . "\n";
 		if(isset($user) && isset($password))
 		{
 			$result=NULL;
