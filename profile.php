@@ -14,7 +14,7 @@
 <?php
 	$user=$_POST["username"];
 	$pass=$_POST["password"];
-
+	$pass=md5($pass);
 	if($user!=NULL && $pass!=NULL)
 	{
 		
