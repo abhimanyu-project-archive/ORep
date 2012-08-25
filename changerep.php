@@ -28,7 +28,7 @@ if(isset($points)){
 	   $row = mysql_fetch_array($result);
 	   $userid = $row['userid'];
 	   $val = intval($points);
-
+	   echo "HOHOHO--->".$userid;
 	   //UPDATE GROSS POINTS IN USERINFO
 	   global $con;
 	   if($val<0){
