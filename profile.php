@@ -32,7 +32,7 @@
 			//user authenticated,give details
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
-			echo "<div align='center'>";
+			echo "<br><br><div align='center'>";
 			echo "<strong>welcome" . $user . "</strong>";
 			echo "</div>";
 			echo $gross;	
