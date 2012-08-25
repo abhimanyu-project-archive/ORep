@@ -28,7 +28,7 @@ function getssid()
     $siteid = $_GET['siteid'];
     $sitekey = $_GET['sitekey'];
     $qstring = "siteid='".$siteid."' AND "."sitekey='".$sitekey."'";
-    echo $qstring;	
+    //echo $qstring;	
     //$authtable=$siteinfo->select("*",$qstring);
     $query = "SELECT * FROM siteinfo WHERE " . $qstring . ";";
     global $con;
