@@ -6,7 +6,7 @@ while(i>0)
 {
 	echo random_gen(20);
 	echo "<br/>";
-	i=i-1;
+	$i=$i-1;
 }
 
 
