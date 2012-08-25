@@ -16,7 +16,7 @@
 <?php
 	$flag = false;
 
-	if(isset[$_SESSION['username']])
+	if(isset($_SESSION['username']))
 	{
 		$user = $_SESSION['USERNAME'];
 		$flag = true;
@@ -43,6 +43,7 @@
 			
 			//user authenticated,give details
 			$flag = true;
+		}
 		}
 	}
 		if($flag == true)
