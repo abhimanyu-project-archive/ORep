@@ -49,13 +49,10 @@ There are two types of tags, ORep_ tags which are fixed, and for stuff like spam
 Getting point 
 =============
 just a call to 
-     http://orep.manyu.in/changerep?siteid=<siteid>&sitekey=<apikey>&usid=<usid>&tag="string1,string2,string3,string4"&mysiteonly=1
-
-
+     http://orep.manyu.in/changerep?siteid=<siteid>&sitekey=<apikey>&usid=<usid>&tag="string1,string2,string3,string4"
 {"Result":"Y", 
- "global":<Global Rep>,
- "mySite":<Site Rep>,     //present only if mysiteonly=1
- "Sum":Sumofstringreps,   // Sum of global tag is mysiteonly=0, else specific to the site tags
+ "Global":<Global Rep>,
+ "Sum":Sumofstringreps,
  "Rep" : [
  "string1" : S1Rep,
  "string2" : S2Rep,
@@ -63,3 +60,14 @@ just a call to
 ...
 
 ]}
+  
+
+
+
+
+
+
+
+
+http://demo.manyu.in/orepreg.php?ssid=0skjo8yohjp8pjjpousoiuy9kjdfho8o8dsgdfg4tb
+
