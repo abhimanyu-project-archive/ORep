@@ -78,7 +78,7 @@ class mysql
         if ($return_result)
             return $return_result;
         else
-            $this->mysql_error($query);
+            return NULL;
     }
 
     // (Private) Function to flash MySql Errors
