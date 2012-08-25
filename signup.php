@@ -34,6 +34,8 @@
 
 			//$row = mysql_fetch_array($result);
 			$rows = mysql_num_rows($result);
+			echo "Rows: ";
+			echo $rows;
 			if($rows > 0)
 			{
 				echo "The username already exists";
@@ -41,7 +43,8 @@
 			}
 			else
 			{
-
+				
+				echo "generating uid\n";
 				$userid = random_gen(20);
 				echo "userid: ". $userid. "\n";
 
