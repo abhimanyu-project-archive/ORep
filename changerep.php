@@ -35,6 +35,7 @@ if(isset($points)){
 	   	$val = 0 - $val;
 		echo $val;
 	   	$string = "UPDATE userinfo SET globalpoint=globalpoint-".$val." WHERE userid="."'".$userid."'";
+		mysql_query($string, $con);
 	   }
 	}
 	else{
