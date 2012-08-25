@@ -48,3 +48,4 @@ function getssid()
 $answer=getssid();
 
 echo json_encode($answer);
+?>
