@@ -78,7 +78,7 @@
 	<fieldset >
 		<div id = "loginform" align="center">
 		<legend>Login</legend>
-		<input type = 'hidden' name = "ssid" value = $ssid/>
+		<input type = 'hidden' name = "ssid" value = <?=$ssid?>/>
 		<input type='hidden' name='submitted' id='submitted' value='1'/>
 		UserName*:&nbsp <input type='text' name='username' id='username'  maxlength="50"/>
 		<br>
