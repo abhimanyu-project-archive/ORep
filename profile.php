@@ -45,7 +45,7 @@
 				
 				echo "<br>SiteId:" . $row["siteid"];
 				//echo "<br>Area Tag:" . $row["tag"];	
-				echo "<br>Points:" . $row["points"];
+				echo "<br>Points:" . $row["SUM(points)"];
 			}
 			echo "</div>";
 		}
