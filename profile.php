@@ -17,7 +17,7 @@
 
 	if($user!=NULL && $pass!=NULL)
 	{
-		echo $pass;
+		
 		//$dbaccess=new mysql("userinfo");
 		$parameter="username=\"".$user."\"";
 		//echo $parameter;
@@ -36,8 +36,11 @@
 			echo $gross;	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM".$userid.";";
+			echo "  1";
 			$result=NULL;
+			echo "  2";	
 			$result = mysql_query($query, $con);
+			echo "  3";
 			echo $result;
 			while($row=mysql_fetch_array($result))
 			{
