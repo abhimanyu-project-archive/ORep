@@ -40,7 +40,8 @@
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
 			echo $result1;
-
+			$row1=mysql_fetch_array($result1);
+			echo "  row1: " . $row1;
 			while($row=mysql_fetch_array($result1))
 			{
 				echo "   1" . $row;	
