@@ -32,20 +32,35 @@
 			//user authenticated,give details
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
+			echo "<br><br><div align='center'>";
 			echo "<strong>welcome" . $user . "</strong>";
-			echo $gross;	
-			//$dbaccess=new mysql("$userid");
-			$query="SELECT * FROM user_".$userid.";";
+			echo "<br>";
+			echo "<br><cite>Gross:" . $gross . "</cite>";	
+			
+
+			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points) DESC;";
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result1))
 			{
-				echo "   1" . $row;	
-				echo $row["siteid"];
-				echo $row["tag"];	
-				echo $row["points"];
+				
+				echo "<br>SiteId:" . $row["siteid"];
+				//echo "<br>Area Tag:" . $row["tag"];	
+				echo "<br>Points:" . $row["SUM(points)"];
 			}
-			
+
+			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points) DESC;";
+                        $result=NULL;   
+                        $result1 = mysql_query($query, $con);
+                        while($row=mysql_fetch_array($result1))
+                        {
+                                
+                                //echo "<br>SiteId:" . $row["siteid"];
+                                echo "<br>Area Tag:" . $row["tag"];   
+                                echo "<br>Points:" . $row["SUM(points)"];
+                        }
+
+			echo "</div>";
 		}
 	die();
 	}

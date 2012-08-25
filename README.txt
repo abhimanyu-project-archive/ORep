@@ -36,29 +36,26 @@ Changing Point
 ==============
 
 just a call to 
-     http://orep.manyu.in/changerep?siteid=<siteid>&sitekey=<apikey>&usid=<usid>&tag="string"&points=<"integer as string">
+     http://orep.manyu.in/changerep.php?siteid=<siteid>&sitekey=<apikey>&usid=<usid>&tag="string"&points=<"integer as string">
 returns
-{"Result":"Y"} or {"Result":"N","error":""}
+{"result":"Y"} or {"result":"N","error":""}
 
 
-There are two types of tags, ORep_ tags which are fixed, and for stuff like spamming, selfpromotion,ettiquette etc.
-
- 
 
 
 Getting point 
 =============
 just a call to 
-     http://orep.manyu.in/changerep?siteid=<siteid>&sitekey=<apikey>&usid=<usid>&tag="string1,string2,string3,string4"&mysiteonly=1
+     http://orep.manyu.in/changerep.php?siteid=<siteid>&sitekey=<apikey>&usid=<usid>&tag="string1,string2,string3,string4"&mysiteonly=1
 
 
-{"Result":"Y", 
+{"result":"Y", 
  "global":<Global Rep>,
- "mySite":<Site Rep>,     //present only if mysiteonly=1
- "Sum":Sumofstringreps,   // Sum of global tag is mysiteonly=0, else specific to the site tags
- "Rep" : [
- "string1" : S1Rep,
- "string2" : S2Rep,
+ "mySite":<Site Rep>,   
+ "sum":Sumofstringreps,   // Sum of global tag is mysiteonly=0, else specific to the site tags
+ "rep" : [
+ "tag1" : S1Rep,
+ "tag2" : S2Rep,
 
 ...
 
