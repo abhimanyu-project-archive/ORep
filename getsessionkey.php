@@ -30,8 +30,8 @@ function getssid()
     $qstring = "siteid='".$siteid."' AND "."sitekey='".$sitekey."'";
     echo $qstring;	
     $authtable=$siteinfo->select("*",$qstring);
-
-   if (!(mysql_fetch_array($authtable)))
+    echo $authtable;
+   if ($authtable==NULL)
    {
 	$result['res']=false;
         $result['error']="Authentication failed";
