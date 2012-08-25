@@ -67,7 +67,7 @@
 <br>
 <br>
 <div align="center">
-<a href="http://localhost/ORep/register.php" ><b>Register with Karma!</b></a>
+<a href="signup.php" ><b>Register with Karma!</b></a>
 </div>
 </body>
 </html>

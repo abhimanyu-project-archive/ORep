@@ -13,7 +13,7 @@
 
 		$user = $_POST["username"];
 		$pass = $_POST["password"];
-		$submitted = $_POST["submitted"];
+		//$submitted = $_POST["submitted"];
 
 
 		if(isset($user) && isset($password))
@@ -35,7 +35,6 @@
 				while(1)
 				{
 					$parameter = "userid='".$userid."'";
-					
 
 					$result = $dbaccess -> select("*", $parameter);
 
