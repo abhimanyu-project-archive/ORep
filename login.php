@@ -27,13 +27,13 @@
 		{
 			$row = mysql_fetch_array($result);
 			$siteid = $row["siteid"];
-			$parameter = "ssid=\"".$ssid."\"";
+			$parameter = "ssid='".$ssid."'";
 			$ssidaccess -> delete($parameter);
 
 			if(isset($user) && isset($password))
 			{
 				$dbaccess = new mysql("userinfo");
-				$parameter = "username=\"".$user."\"";
+				$parameter = "username='".$user."'";
 				$result = $dbaccess -> select("*", $parameter);
 	
 				$row = mysql_fetch_array($result);
@@ -48,7 +48,7 @@
 					{
 						$siteuserid = random_gen(20);
 
-						$parameter = "siteuserid=\"".$siteuserid."\"";
+						$parameter = "siteuserid='".$siteuserid."'";
 						$result = $dbaccess2 -> select("*", $parameter);
 
 						$row = mysql_fetch_array($result);
@@ -56,6 +56,7 @@
 						if(!isset($row["siteuserid"]))
 						{
 							$dbaccess2 -> insert(array($siteid, $userid, $siteuserid));
+							break;
 						}
 					}
 				}
