@@ -23,6 +23,7 @@
 		//echo $parameter;
 		$query="SELECT * FROM userinfo WHERE " . $parameter . ";";
 		global $con;
+		$result=NULL;	
 		$result = mysql_query($query, $con);	
 		$raw=mysql_fetch_array($result);
 		
@@ -36,6 +37,7 @@
 			echo $gross;	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM".$userid.";";
+			$result=NULL;
 			$result = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result))
 			{
@@ -68,7 +70,7 @@
 <br>
 <br>
 <div align="center">
-<a href="http://localhost/ORep/register.php" ><b>Register with Karma!</b></a>
+<a href="register.php" ><b>Register with Karma!</b></a>
 </div>
 </body>
 </html>
