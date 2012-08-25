@@ -1,4 +1,7 @@
-    <html>
+    <?php
+	require_once('basicfun.php');
+	?>
+	<html>
     <head>
     <title>Bootstrap 101 Template</title>
     <!-- Bootstrap -->
@@ -11,8 +14,7 @@
 
 		$con = mysql_connect(server, username, password);
 		$db = mysql_select_db(database, $con) or die("Unable to select database")
-
-		require_once('basicfun.php');
+		
 	?>
 
 
