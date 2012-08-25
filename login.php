@@ -37,7 +37,7 @@
 				$result = $dbaccess -> select("*", $parameter);
 	
 				$row = mysql_fetch_array($result);
-				if($row["passwordhash"]==$pass)
+				if($row["passwordhash"]==md5($pass))
 				{
 					//user authenticated
 					$userid = $row["userid"];
