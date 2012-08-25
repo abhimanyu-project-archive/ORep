@@ -28,9 +28,15 @@ if(isset($points)){
 	   $row = mysql_fetch_array($res);
 	   $userid = $row['userid'];
 	   $val = intval($points);
-	   echo "HOHOHO--->".$userid;
+	   
 	   //UPDATE GROSS POINTS IN USERINFO
 	   global $con;
+	   $query = "select weight from siteinfo where siteid="."'".$siteid."'";
+	   echo $query;
+	   $res1 = mysql_query($query, $con);
+	   $row1 = mysql_fetch_array($res1);
+	   $weight = $row['weight'];
+	   $val = $weight * $val;
 	   if($val<0){
 	   	$val = 0 - $val;
 		echo $val;
@@ -38,6 +44,8 @@ if(isset($points)){
 		echo $string;
 		mysql_query($string, $con);
 	   }
+
+	  //
 	}
 	else{
 	   //return -1 tupple to show error
