@@ -4,6 +4,7 @@ require_once('mysql_class.php');
 require_once('basicfun.php');
 $siteinfo =new mysql("siteinfo");
 $siteinfo =new mysql("ssidtable");
+echo "Wow";
 function getssid()
 {
     $result = [
@@ -11,6 +12,7 @@ function getssid()
                ssid => "",
                error=> "",
               ] 
+    echo "Boom";
     if(empty($_GET['siteid']))
     {
         $result['res']=false;
