@@ -1,7 +1,7 @@
 <?php
 //Author  : Mangat Rai Modi [mangatmodi@gmail.com]
-//version : 1.3
-//Updated : 01:50	 26,aug,2012
+//version : 1.3.1
+//Updated : 04:17	 26,aug,2012
 //Description : It changes/display points of the user
 
 require_once('connect_db1.php');//Change when hosted  server!!
@@ -109,12 +109,24 @@ if($num_rows3 > 0){//SITE IS VALID
 		$ans2 = mysql_fetch_array(mysql_query($query2, $con));
 		$gross_site =  $ans2['OrderTotal'];
 		if($mysite == 1){ //SITE ONLY
-
-		$query3 = "SELECT SUM( points ) AS OrderTotal FROM ".$temp." WHERE siteid = '".$siteid."' && ( tag='".$tag_array[0]."'||tag='".$tag_array[1]."')";
-		echo $query3;
+		
+		//CREATING THE TAG QUERY STRING
+		$total = count($tag_array);
+		$n =0;
+		$tag_string = "";
+		while($n < $total-1){
+		$tag_string = $tag_string.$tag_array[$n]."'||tag='";
+		$n = $n + 1;
+		}
+		$tag_string = $tag_string.$tag_array[$total-1];
+//		echo $tag_string;
+		
+		//-------------------------
+		$query3 = "SELECT SUM( points ) AS OrderTotal FROM ".$temp." WHERE siteid = '".$siteid."' && ( tag='".$tag_string."')";
+		//echo $query3;
 		$ans3 = mysql_fetch_array(mysql_query($query3, $con));
-		//$global =  $ans3['globalpoint'];
-
+		$sum =  $ans3['OrderTotal'];
+		echo $sum;
 
 		}
 	}
