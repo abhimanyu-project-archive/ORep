@@ -37,14 +37,14 @@
 			echo "<br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
 			//$dbaccess=new mysql("$userid");
-			$query="SELECT * FROM user_".$userid.";";
+			$query="SELECT siteid,SUM(points) FROM user_".$userid."GROUP BY siteid;";
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result1))
 			{
 				
 				echo "<br>SiteId:" . $row["siteid"];
-				echo "<br>Area Tag:" . $row["tag"];	
+				//echo "<br>Area Tag:" . $row["tag"];	
 				echo "<br>Points:" . $row["points"];
 			}
 			echo "</div>";
