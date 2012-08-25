@@ -3,7 +3,7 @@ require_once('connect_db.php');
 require_once('mysql_class.php');
 require_once('basicfun.php');
 $siteinfo =new mysql("siteinfo");
-$siteinfo =new mysql("ssidtable");
+$ssidtable =new mysql("ssidtable");
 function getssid()
 {
     $result = array(
@@ -24,6 +24,7 @@ function getssid()
         $result['error']="SiteKey Ommitted";
         return $result;
     }
+
     $siteid = $_GET['siteid'];
     $sitekey = $_GET['sitekey'];
     $qstring = "siteid='".$siteid."' AND "."sitekey='".$sitekey."'";
@@ -39,7 +40,7 @@ function getssid()
    {
 	$ssid=random_gen(20);
 	$qstring ="'".$siteid."','".$ssid."'";
-	//$ssidtable=$siteinfo.insert($qstring);	
+	//$ssidtable=$ssidtable.insert($qstring);	
 	$result['res']=true;
         $result['ssid']=$ssid;  
    }
