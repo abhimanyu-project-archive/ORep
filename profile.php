@@ -38,10 +38,10 @@
 			$query="SELECT * FROM user_".$userid.";";
 			$con; 
 			$result=NULL;	
-			$result = mysql_query($query, $con);
-			echo $result;
+			$result1 = mysql_query($query, $con);
+			echo $result1;
 
-			while($row=mysql_fetch_array($result))
+			while($row=mysql_fetch_array($result1))
 			{
 				echo "   1" . $row;	
 				echo $row["siteid"];
