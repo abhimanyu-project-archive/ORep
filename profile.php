@@ -35,7 +35,7 @@
 			echo "<br><br><div align='center'>";
 			echo "<strong>welcome" . $user . "</strong>";
 			echo "<br>";
-			echo "<br>Gross:" . $gross . "<div>";	
+			echo "<br><cite>Gross:" . $gross . "</cite><div>";	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM user_".$userid.";";
 			$result=NULL;	
