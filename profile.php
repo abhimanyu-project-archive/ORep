@@ -18,7 +18,7 @@
 
 	if(isset($_SESSION['username']))
 	{
-		$user = $_SESSION['USERNAME'];
+		$user = $_SESSION['username'];
 		$flag = true;
 	}
 	else
