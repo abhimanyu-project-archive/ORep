@@ -1,7 +1,7 @@
 <?php
 //Author  : Mangat Rai Modi [mangatmodi@gmail.com]
 //version : 1.0
-//Updated : 15:43, 25,aug,2012
+//Updated : 19:53, 25,aug,2012
 //Description : It changes/display points of the user
 
 require_once('connect_db.php');
@@ -20,7 +20,7 @@ if(isset($points)){
 	//get if site has permission for that user
 	$perm = new mysql("permission");
 	$string = "siteid="."'".$siteid."'"." and siteuserid="."'".$usid."'";
-	echo $string;
+//	echo $string;
 	$res = $perm->select('userid',$string);
 	$num_rows = mysql_num_rows($res);
 	if($num_rows > 0){
@@ -35,6 +35,7 @@ if(isset($points)){
 	   	$val = 0 - $val;
 		echo $val;
 	   	$string = "UPDATE userinfo SET globalpoint=globalpoint-".$val." WHERE userid="."'".$userid."'";
+		echo $string;
 		mysql_query($string, $con);
 	   }
 	}
