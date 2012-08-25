@@ -39,7 +39,7 @@ function getssid()
    {
 	$ssid=random_gen(20);
 	$qstring ="'".$siteid."','".$ssid."'";
-	$ssidtable=$siteinfo.insert($qstring);	
+	//$ssidtable=$siteinfo.insert($qstring);	
 	$result['res']=true;
         $result['ssid']=$ssid;  
    }

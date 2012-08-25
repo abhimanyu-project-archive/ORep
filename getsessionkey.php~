@@ -27,7 +27,7 @@ function getssid()
     $siteid = $_GET['siteid'];
     $sitekey = $_GET['sitekey'];
     $qstring = "siteid='".$siteid."' AND "."sitekey='".$sitekey."'";
-    $authtable=siteinfo.select("*",$qstring);
+    $authtable=$siteinfo->select("*",$qstring);
 
    if (!(mysql_fetch_array($authtable)))
    {
@@ -37,9 +37,9 @@ function getssid()
    }
    else
    {
-	$ssid="asdfasdf";//random_gen(20);
+	$ssid=random_gen(20);
 	$qstring ="'".$siteid."','".$ssid."'";
-	$ssidtable=siteinfo.insert($qstring);	
+	$ssidtable=$siteinfo.insert($qstring);	
 	$result['res']=true;
         $result['ssid']=$ssid;  
    }
