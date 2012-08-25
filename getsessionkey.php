@@ -8,10 +8,10 @@ echo "Wow";
 function getssid()
 {
     $result = [
-               res => false,
-               ssid => "",
-               error=> "",
-              ] 
+               'res' => false,
+               'ssid' => "",
+               'error' => "",
+              ];
     echo "Boom";
     if(empty($_GET['siteid']))
     {
