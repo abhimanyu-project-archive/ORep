@@ -82,7 +82,7 @@
 							{
 								$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
 								mysql_query($query);
-								$query = "update ssidtable set userid='".$siteuserid."' where ssid='".$ssid."'";
+								$query = "update ssidtable set siteuserid='".$siteuserid."' where ssid='".$ssid."'";
 								mysql_query($query);
 								break;
 							}
