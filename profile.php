@@ -42,10 +42,10 @@
 			$result1 = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result1))
 			{
-				echo 
-				echo "<br>SiteId:"$row["siteid"];
-				echo "<br>Area Tag:"$row["tag"];	
-				echo "<br>Points:"$row["points"];
+				
+				echo "<br>SiteId:" . $row["siteid"];
+				echo "<br>Area Tag:" . $row["tag"];	
+				echo "<br>Points:" . $row["points"];
 			}
 			echo "</div>";
 		}
