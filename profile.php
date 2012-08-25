@@ -47,6 +47,18 @@
 				//echo "<br>Area Tag:" . $row["tag"];	
 				echo "<br>Points:" . $row["SUM(points)"];
 			}
+
+			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag;";
+                        $result=NULL;   
+                        $result1 = mysql_query($query, $con);
+                        while($row=mysql_fetch_array($result1))
+                        {
+                                
+                                //echo "<br>SiteId:" . $row["siteid"];
+                                echo "<br>Area Tag:" . $row["tag"];   
+                                echo "<br>Points:" . $row["SUM(points)"];
+                        }
+
 			echo "</div>";
 		}
 	die();
