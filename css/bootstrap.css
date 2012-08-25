@@ -603,6 +603,8 @@ em {
 
 cite {
   font-style: normal;
+  font-weight:bold;
+  font-size:130%;
 }
 
 .muted {

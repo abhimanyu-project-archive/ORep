@@ -35,19 +35,19 @@
 			echo "<br><br><div align='center'>";
 			echo "<strong>welcome" . $user . "</strong>";
 			echo "<br>";
-			echo "<br>Gross:" . $gross . "<div>";	
+			echo "<br><cite>Gross:" . $gross . "</cite>";	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM user_".$userid.";";
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result1))
 			{
-				echo "   1" . $row;	
-				echo $row["siteid"];
-				echo $row["tag"];	
-				echo $row["points"];
+				
+				echo "<br>SiteId:" . $row["siteid"];
+				echo "<br>Area Tag:" . $row["tag"];	
+				echo "<br>Points:" . $row["points"];
 			}
-			
+			echo "</div>";
 		}
 	die();
 	}
