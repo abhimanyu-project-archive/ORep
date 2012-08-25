@@ -25,7 +25,7 @@
 		global $con;
 		$result=NULL;	
 		$result = mysql_query($query, $con);	
-		$raw=mysql_fetch_array($result);
+		$row=mysql_fetch_array($result);
 		
 		if($row["passwordhash"]==$pass)
 		{
