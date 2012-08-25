@@ -24,20 +24,20 @@
 		$pass = $_POST["password"];
 		//$submitted = $_POST["submitted"];
 
-		echo $user. "   ". $pass . "\n";
+		//echo $user. "   ". $pass . "\n";
 		if(isset($user) && isset($pass))
 		{
 			$result=NULL;
 			//$result = $dbaccess -> select("*", $parameter);
 			
 			$query = "select * from userinfo where username='".$user."'";
-			echo $query."\n";
+			//echo $query."\n";
 			$result = mysql_query($query);
 
 			//$row = mysql_fetch_array($result);
 			$rows = mysql_num_rows($result);
-			echo "Rows: ";
-			echo $rows;
+			//echo "Rows: ";
+			//echo $rows;
 			if($rows > 0)
 			{
 				echo "The username already exists";
@@ -46,14 +46,14 @@
 			else
 			{
 				
-				echo "generating uid\n";
+				//echo "generating uid\n";
 				$userid = random_gen(20);
-				echo "userid: ". $userid. "\n";
+				//echo "userid: ". $userid. "\n";
 
 				while(1)
 				{
 					$query = "select * from userinfo where userid='".$userid."'";
-					echo $query."\n";
+					//echo $query."\n";
 					$result = mysql_query($query);
 
 					$row = mysql_fetch_array($result);
@@ -61,15 +61,16 @@
 					if(empty($row["userid"]))
 					{
 						$query = "insert into userinfo values('".$userid."', '".$user."', '0', '".md5($pass)."')";
-						echo $query."\n";
+						//echo $query."\n";
 						mysql_query($query);
 
-						$query = "create table user_".$userID." (siteid char(20), 
+						$query = "create table user_".$userid." (siteid char(20), 
 											tag varchar(50), 
 											points float)";
-						echo $query."\n";
+						//echo $query."\n";
 						mysql_query($query);
-						echo "successfully inserted";
+						echo "successfully registered";
+						die('');
 						break;
 					}
 				}
@@ -86,7 +87,7 @@
     <form id='signup' action='signup.php' method='post' accept-charset='UTF-8'>
 	<fieldset >
 		<div id = "signupform" align="center">
-		<legend>Login</legend>
+		<legend>Register</legend>
 		<input type='hidden' name='submitted' id='submitted' value='1'/>
 		UserName*:&nbsp <input type='text' name='username' id='username'  maxlength="50"/>
 		<br>
