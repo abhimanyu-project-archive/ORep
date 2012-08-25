@@ -1,4 +1,6 @@
 <?php
+require_once ('basicfun.php');
+
 $i=20;
 while(i>0)
 {
