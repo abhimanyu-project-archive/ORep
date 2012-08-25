@@ -23,68 +23,74 @@
 		$user = $_POST["username"];
 		$pass = $_POST["password"];
 		$ssid = $_POST["ssid"];
+		$ssid1 = $_GET["ssid"];
 		$submitted = $_POST["submitted"];
+
+		if(isset($ssid1))
+		{
+			$ssid = $ssid1;
+		}
 
 		if(isset($ssid) || isset($submitted))		
 		{
-		//$ssidaccess = new mysql("ssidtable");
-		$query = "select * from ssidtable where ssid='".$ssid."'";
-		//$parameter = "ssid=\"".$ssid."\"";
+			//$ssidaccess = new mysql("ssidtable");
+			$query = "select * from ssidtable where ssid='".$ssid."'";
+			//$parameter = "ssid=\"".$ssid."\"";
 
-		$result = mysql_query($query);
-		$num_rows = mysql_num_rows($result);
-		//$row = mysql_fetch_array($result);
-		if($num_rows > 0)
-		{
-			$row = mysql_fetch_array($result);
-			$siteid = $row["siteid"];
-			$query = "delete from ssidtable where ssid='".$ssid."'";
-			//$parameter = "ssid='".$ssid."'";
-			//$ssidaccess -> delete($parameter);
-			mysql_query($query);
-
-			if(isset($user) && isset($password))
+			$result = mysql_query($query);
+			$num_rows = mysql_num_rows($result);
+			//$row = mysql_fetch_array($result);
+			if($num_rows > 0)
 			{
-				//$dbaccess = new mysql("userinfo");
-				//$parameter = "username='".$user."'";
-				$query = "select * from userinfo where username='".$user."'";
-				//$result = $dbaccess -> select("*", $parameter);
-				$result = mysql_query($query);
-	
 				$row = mysql_fetch_array($result);
-				if($row["passwordhash"]==md5($pass))
+				$siteid = $row["siteid"];
+				$query = "delete from ssidtable where ssid='".$ssid."'";
+				//$parameter = "ssid='".$ssid."'";
+				//$ssidaccess -> delete($parameter);
+				mysql_query($query);
+
+				if(isset($user) && isset($password))
 				{
-					//user authenticated
-					$userid = $row["userid"];
-					//$dbaccess2 = new mysql("permission");
-					$query_part = "select * from permission where siteuserid='";
-					
-
-					while(1)
-					{
-						$siteuserid = random_gen(20);
-
-						$query = $query_part.$siteuserid."'";
-						//$parameter = "siteuserid='".$siteuserid."'";
-						//$result = $dbaccess2 -> select("*", $parameter);
-
-						$result = mysql_query($query);
-						$rows = mysql_num_rows($result);
-						//$row = mysql_fetch_array($result);
-
-						if(!($rows>0))
-						{
-							$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
+					//$dbaccess = new mysql("userinfo");
+					//$parameter = "username='".$user."'";
+					$query = "select * from userinfo where username='".$user."'";
+					//$result = $dbaccess -> select("*", $parameter);
+					$result = mysql_query($query);
 	
-							//$dbaccess2 -> insert(array($siteid, $userid, $siteuserid));
-							break;
+					$row = mysql_fetch_array($result);
+					if($row["passwordhash"]==md5($pass))
+					{
+						//user authenticated
+						$userid = $row["userid"];
+						//$dbaccess2 = new mysql("permission");
+						$query_part = "select * from permission where siteuserid='";
+						
+
+						while(1)
+						{
+							$siteuserid = random_gen(20);
+
+							$query = $query_part.$siteuserid."'";
+							//$parameter = "siteuserid='".$siteuserid."'";
+							//$result = $dbaccess2 -> select("*", $parameter);
+
+							$result = mysql_query($query);
+							$rows = mysql_num_rows($result);
+							//$row = mysql_fetch_array($result);
+
+							if(!($rows>0))
+							{
+								$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
+	
+								//$dbaccess2 -> insert(array($siteid, $userid, $siteuserid));
+								break;
+							}
 						}
 					}
-				}
 
 				
+				}
 			}
-		}
 		}
 		else
 		{
