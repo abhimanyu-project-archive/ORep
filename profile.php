@@ -37,7 +37,7 @@
 			echo "<br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
 			//$dbaccess=new mysql("$userid");
-			$query="SELECT siteid,SUM(points) FROM user_".$userid."GROUP BY siteid;";
+			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid;";
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result1))
