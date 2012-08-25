@@ -126,8 +126,18 @@ if($num_rows3 > 0){//SITE IS VALID
 		//echo $query3;
 		$ans3 = mysql_fetch_array(mysql_query($query3, $con));
 		$sum =  $ans3['OrderTotal'];
-		echo $sum;
-
+	//	echo $sum;
+		
+		//NOW GETTING TABLE OF GIVEN TAGS FOR THE SITE
+		$query4 = "SELECT tag,points FROM ".$temp." WHERE siteid = '".$siteid."' && ( tag='".$tag_string."')";
+		echo $query4;
+		$tag_res = mysql_query($query4, $con);
+		$site_tags = array();
+		while($ans4 = mysql_fetch_array($tag_res)){
+			$tag_temp = $ans4['tag']; //we have to push tag => points
+			$site_tags[$tag_temp] = $ans4['points'];
+			}
+		echo json_encode($site_tags);
 		}
 	}
 	}	
