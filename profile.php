@@ -63,12 +63,12 @@
 			echo "<strong>welcome" . $user . "</strong>";
 			echo "<br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
-			
+			echo "</div>";	
 
 			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points) DESC;";
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
-			echo "<table width=100%><td align='center'>"
+			echo "<table width=100%><td align='center'>";
 			while($row=mysql_fetch_array($result1))
 			{
 				
@@ -80,7 +80,7 @@
 			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points) DESC;";
                         $result=NULL;   
                         $result1 = mysql_query($query, $con);
-			echo "<td align='center'>"
+			echo "<td align='center'>";
                         while($row=mysql_fetch_array($result1))
                         {
                                 
