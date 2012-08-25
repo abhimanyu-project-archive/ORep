@@ -44,7 +44,7 @@
 			$result = mysql_query($query, $con);
 			echo "  3";
 			echo $result;
-			while($row=mysql_fetch_array($result))
+			while($row==mysql_fetch_array($result))
 			{
 				echo $row["siteid"];
 				echo $row["tag"];	
