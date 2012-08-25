@@ -4,11 +4,9 @@
 <head>
 
 <link href="css/bootstrap.css" rel="stylesheet">
-<?php
-   include 'connect_db.php';
-   include 'mysql_class.php';
+<?php   include 'connect_db.php';
+        include 'mysql_class.php';
 ?>
-
 
 
 
@@ -20,10 +18,12 @@
 	if($user!=NULL && $pass!=NULL)
 	{
 		echo $pass;
-		$dbaccess=new mysql("userinfo");
+		//$dbaccess=new mysql("userinfo");
 		$parameter="username=\"".$user."\"";
-		echo $parameter;
-		$result=$dbaccess->select("*",$parameter);	
+		//echo $parameter;
+		$query="SELECT * FROM userinfo WHERE " . $parameter . ";";
+		global $con;
+		$result = mysql_query($query, $con);	
 		$raw=mysql_fetch_array($result);
 		
 		if($row["passwordhash"]==$pass)
@@ -34,8 +34,9 @@
 			$gross=$row["globalpoint"];
 			echo "welcome" + $user;
 			echo $gross;	
-			$dbaccess=new mysql("$userid");
-			$result=$dbaccess->select("*");			
+			//$dbaccess=new mysql("$userid");
+			$query="SELECT * FROM".$userid.";";
+			$result = mysql_query($query, $con);
 			while($row=mysql_fetch_array($result))
 			{
 				echo $row["siteid"];
@@ -67,7 +68,7 @@
 <br>
 <br>
 <div align="center">
-<a href="signup.php" ><b>Register with Karma!</b></a>
+<a href="http://localhost/ORep/register.php" ><b>Register with Karma!</b></a>
 </div>
 </body>
 </html>
