@@ -26,20 +26,19 @@
 		$result=NULL;	
 		$result = mysql_query($query, $con);	
 		$row=mysql_fetch_array($result);
-		echo $row["passwordhash"];
-		echo "ha";	
 		if($row["passwordhash"]==$pass)
 		{
 			
 			//user authenticated,give details
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
-			echo "welcome" + $user;
+			echo "welcome" . $user;
 			echo $gross;	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM".$userid.";";
 			$result=NULL;
 			$result = mysql_query($query, $con);
+			echo $result;
 			while($row=mysql_fetch_array($result))
 			{
 				echo $row["siteid"];
