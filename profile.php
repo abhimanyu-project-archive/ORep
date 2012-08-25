@@ -34,8 +34,8 @@
 			$gross=$row["globalpoint"];
 			echo "<br><br><div align='center'>";
 			echo "<strong>welcome" . $user . "</strong>";
-			echo "</div>";
-			echo $gross;	
+			echo "<br>";
+			echo "<br>Gross:" . $gross . "<div>";	
 			//$dbaccess=new mysql("$userid");
 			$query="SELECT * FROM user_".$userid.";";
 			$result=NULL;	
