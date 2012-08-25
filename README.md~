@@ -1,0 +1,14 @@
+===ORep===
+An open user reputation platform on the lines of OAuth
+
+
+How it works
+
+The site will call
+http://orep.manyu.in/getsessionkey.php?siteid=<siteid>&sitekey=<apikey>
+
+
+
+
+http://demo.manyu.in/orepreg.php?ssid=0skjo8yohjp8pjjpousoiuy9kjdfho8o8dsgdfg4tb
+
