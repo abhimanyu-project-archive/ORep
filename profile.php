@@ -18,9 +18,10 @@
 
 	if($user!=NULL && $pass!=NULL)
 	{
-		echo "ifwef";
+		echo $pass;
 		$dbaccess=new mysql("userinfo");
 		$parameter="username=\"".$user."\"";
+		echo $parameter;
 		$result=$dbaccess->select("*",$parameter);	
 		$raw=mysql_fetch_array($result);
 		
