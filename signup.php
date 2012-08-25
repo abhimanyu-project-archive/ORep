@@ -32,10 +32,12 @@
 			echo $query."\n";
 			$result = mysql_query($query);
 
-			$row = mysql_fetch_array($result);
-			if(!empty($row))
+			//$row = mysql_fetch_array($result);
+			$rows = mysql_num_rows($result);
+			if($result > 0)
 			{
 				echo "The username already exists";
+
 			}
 			else
 			{
