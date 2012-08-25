@@ -5,7 +5,8 @@
 
 <link href="css/bootstrap.css" rel="stylesheet">
 <?php
-   require_once('mysql_class.php');
+   include 'connect_db.php';
+   include 'mysql_class.php';
 ?>
 
 
