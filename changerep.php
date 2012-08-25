@@ -25,7 +25,7 @@ if(isset($points)){
 	$num_rows = mysql_num_rows($res);
 	if($num_rows > 0){
 	   //now update further
-	   $row = mysql_fetch_array($result);
+	   $row = mysql_fetch_array($res);
 	   $userid = $row['userid'];
 	   $val = intval($points);
 	   echo "HOHOHO--->".$userid;
