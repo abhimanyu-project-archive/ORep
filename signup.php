@@ -4,8 +4,15 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
 	<?php
-		include 'connect_db.php';
-		include 'mysql_class.php';
+		define('server', 'localhost');
+		define('database', 'orep');
+		define('username', 'orepuser');
+		define('password', 'oi8yLU&789jbkl');
+
+		$con = mysql_connect(server, username, password);
+		$db = mysql_select_db(database, $con) or die("Unable to select database")
+
+		//include 'mysql_class.php';
 	?>
 
 
@@ -18,9 +25,11 @@
 
 		if(isset($user) && isset($password))
 		{
-			$dbaccess = new mysql("userinfo");
-			$parameter = "username=\"".$user."\"";
-			$result = $dbaccess -> select("*", $parameter);
+			$result=NULL;
+			//$result = $dbaccess -> select("*", $parameter);
+			
+			$query = "select * from userinfo where username='".$user."'";
+			$result = mysql_query($query);
 
 			$row = mysql_fetch_array($result);
 			if(!empty($row))
@@ -34,15 +43,15 @@
 
 				while(1)
 				{
-					$parameter = "userid='".$userid."'";
-
-					$result = $dbaccess -> select("*", $parameter);
+					$query = "select * from userinfo where userid='".$userid."'";
+					$result = mysql_query($query);
 
 					$row = mysql_fetch_array($result);
 
 					if(empty($row["userid"]))
 					{
-						$dbaccess -> insert(array($userid, $username, "-1", md5($pass)));
+						$query = "insert into userinfo values('".$userid."', '".$username."', '-1', '".md5($pass)."')";
+						mysql_query($query);
 						echo "successfully inserted";
 						break;
 					}
