@@ -1,8 +1,10 @@
 <?php
 //Author  : Mangat Rai Modi [mangatmodi@gmail.com]
-//version : 1.0
+//version : 1.3
 //Updated : 19:53, 25,aug,2012
 //Description : It changes/display points of the user
+
+error_reporting(0);
 
 require_once('connect_db.php');
 require('mysql_class.php');
@@ -14,13 +16,19 @@ $usid = $_GET["usid"];
 $tag = $_GET["tag"];
 $points = $_GET["points"];
 $mysiteonly = $_GET["mysiteonly"];
-
+$flag = 0; //denotes an error
 //ADD POINTS
 if(isset($points)){
 	//get if site has permission for that user
 	$perm = new mysql("permission");
+	$siteinfo = new mysql("siteinfo");
 	$string = "siteid="."'".$siteid."'"." and siteuserid="."'".$usid."'";
-//	echo $string;
+	$string3 = "siteid="."'".$siteid."'"." and sitekey="."'".$sitekey."'";
+	echo $string3;
+	//Validating site
+	$res3 = $siteinfo->select('weight',$string3);
+	$num_rows3 = mysql_num_rows($res3);
+	if($num_rows3 > 0){
 	$res = $perm->select('userid',$string);
 	$num_rows = mysql_num_rows($res);
 	if($num_rows > 0){
@@ -28,17 +36,17 @@ if(isset($points)){
 	   $row = mysql_fetch_array($res);
 	   $userid = $row['userid'];
 	   $val = intval($points);
-	   
 	   //UPDATE GROSS POINTS IN USERINFO
 	   global $con;
 	   $query = "select weight from siteinfo where siteid="."'".$siteid."'";
 	   echo $query;
 	   $res1 = mysql_query($query, $con);
+	$num_rows1 = mysql_num_rows($res);
 	   $row1 = mysql_fetch_array($res1);
-	   $weight = $row['weight'];
+	   $weight = $row1['weight'];
 	   echo $weight;
-	   $val = intval($weight) * $val;
-	   echo"-->".$val;
+	   $val = round(floatval($weight) * $val);
+	 //  echo"-->".$val;
 	   if($val<0){
 	   	$val = 0 - $val;
 		echo $val;
@@ -46,13 +54,19 @@ if(isset($points)){
 		echo $string;
 		mysql_query($string, $con);
 	   }
+	   else{
 
-	  //
+	   	$string = "UPDATE userinfo SET globalpoint=globalpoint+".$val." WHERE userid="."'".$userid."'";
+		echo $string;
+		mysql_query($string, $con);
+	   }
 	}
 	else{
 	   //return -1 tupple to show error
 	   echo " EMPTY";
 	}
+	}
+	else{$flag = -1; echo "Sitefraud";}//site fraud
 }
 //GET POINTS
 else{
