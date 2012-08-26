@@ -100,6 +100,15 @@
 							$query = "update ssidtable set siteuserid='".$siteuserid."' where ssid='".$ssid."'";
 							echo $query;
 							mysql_query($query);
+
+
+							$query="select backtrackurl from siteapi where siteid='".$siteid."'";
+							echo $query;
+							$result = mysql_query($query);
+							$row = mysql_fetch_array($result);
+							$backtrack = $row['backtrackurl'];
+							header('Location: '.$backtrack.'/orepreg.php?ssid='.$ssid.'&done=1');
+							die();
 						}
 					}
 
