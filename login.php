@@ -35,6 +35,7 @@
 		{
 			//$ssidaccess = new mysql("ssidtable");
 			$query = "select * from ssidtable where ssid='".$ssid."'";
+			echo $query."\n";
 			//$parameter = "ssid=\"".$ssid."\"";
 
 			$result = mysql_query($query);
@@ -42,6 +43,7 @@
 			//$row = mysql_fetch_array($result);
 			if($num_rows > 0)
 			{
+				echo "ssid found\n";
 				$row = mysql_fetch_array($result);
 				$siteid = $row["siteid"];
 				//$query = "update ssidtable set userid=".$where ssid='".$ssid."'";
@@ -49,7 +51,7 @@
 				//$ssidaccess -> delete($parameter);
 				//mysql_query($query);
 
-				if(isset($user) && isset($password))
+				if(isset($user) && isset($pass))
 				{
 					//$dbaccess = new mysql("userinfo");
 					//$parameter = "username='".$user."'";
