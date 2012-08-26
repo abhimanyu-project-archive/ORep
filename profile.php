@@ -143,7 +143,7 @@
 				$query="SELECT sitename  FROM siteapi WHERE siteid='" . $row["siteid"] . "';";	
 				$result=mysql_query($query, $con);
 				$row1=mysql_fetch_array($result);
-				echo "<br>" . $row1["sitename"];
+				echo "<br><h3>@" . $row1["sitename"]."</h3>";
 				//echo "<br>Area Tag:" . $row["tag"];	
 				echo "   :";
 				printf("%.2f",$row["SUM(points)"]);
