@@ -3,9 +3,8 @@
 
 <link href="css/bootstrap.css" rel="stylesheet">
 <?php
-$_SESSION['username']=NULL;
-$_POST["username"]=NULL;
-$_POST["password"]=NULL;
+session_start();
+unset($_SESSION['username']);
 echo "Logged Out!";
 echo "<a href='profile.php'>Go to Login Page</a>";
 ?>

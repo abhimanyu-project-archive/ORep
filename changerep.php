@@ -1,7 +1,7 @@
 <?php
 //Author  : Mangat Rai Modi [mangatmodi@gmail.com]
 //version : 1.3.1
-//Updated : 04:17	 26,aug,2012
+//Updated : 05:17	 26,aug,2012
 //Description : It changes/display points of the user
 
 require_once('connect_db1.php');//Change when hosted  server!!
@@ -130,14 +130,16 @@ if($num_rows3 > 0){//SITE IS VALID
 		
 		//NOW GETTING TABLE OF GIVEN TAGS FOR THE SITE
 		$query4 = "SELECT tag,points FROM ".$temp." WHERE siteid = '".$siteid."' && ( tag='".$tag_string."')";
-		echo $query4;
+	//	echo $query4;
 		$tag_res = mysql_query($query4, $con);
 		$site_tags = array();
 		while($ans4 = mysql_fetch_array($tag_res)){
 			$tag_temp = $ans4['tag']; //we have to push tag => points
-			$site_tags[$tag_temp] = $ans4['points'];
+			$site_tags[$tag_temp] = intval($ans4['points']);
 			}
-		echo json_encode($site_tags);
+		}
+		if($mysite == 0){ //Global
+
 		}
 	}
 	}	
@@ -148,7 +150,18 @@ if($num_rows3 > 0){//SITE IS VALID
 	}
 	else{$flag = -2; echo "Sitefraud";}//SITE FRAUD
 	if($flag == 0){
+	 if(isset($points)){
 	   $arr = array ('result'=>'Y');
+	   }
+	else{
+	   $arr = array(
+			'result'=>'Y',
+			'global'=>intval($global),
+			'mysite'=>intval($gross_site),
+			'sum'=>intval($sum),
+			'rep'=>$site_tags,
+			);
+	}
 	   echo json_encode($arr);
 	
 	}
