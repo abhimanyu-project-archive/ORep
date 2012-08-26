@@ -1,3 +1,5 @@
+
+<body bgcolor=#C0C0C0>
 <?php
 
 
@@ -9,7 +11,7 @@
 	define('password', 'oi8yLU&789jbkl');
 
 	echo"
-	<Legend>Connecting to GitHub</Legend>
+	<center><Legend>Connecting to GitHub</Legend></center>
 	<hr>";
 	// Connecting to the database
 
@@ -56,3 +58,5 @@
 		<input id = "submit" name = "submit" type="submit" value="submit"/>
 
 	</form>
+
+</body>
