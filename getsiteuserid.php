@@ -6,7 +6,7 @@ function getssid()
 {
     $result = array(
                'res' => false,
-               'ssid' => "",
+               'suid' => "",
                'error' => "",
               );
     if(empty($_GET['ssid']))
