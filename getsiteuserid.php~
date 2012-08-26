@@ -23,8 +23,7 @@ function getssid()
     $auth_table = NULL;
     $auth_table = mysql_query($query, $con);
     //echo $auth_table;
-    $row=mysql_fetch_row($auth_table)
-    if (!$row)
+    if ($row=mysql_fetch_array($auth_table);)
    {
 	$result['res']=false;
         $result['error']="Authentication failed";
