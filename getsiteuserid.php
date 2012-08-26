@@ -23,7 +23,7 @@ function getssid()
     $auth_table = NULL;
     $auth_table = mysql_query($query, $con);
     //echo $auth_table;
-    $row=mysql_fetch_row($auth_table)
+    $row=mysql_fetch_row($auth_table);
     if (!$row)
    {
 	$result['res']=false;
