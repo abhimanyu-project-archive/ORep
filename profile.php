@@ -6,6 +6,7 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 
+
 <body bgcolor=#C0C0C0>
 
 <?php 
