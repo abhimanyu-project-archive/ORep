@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+
 	$gituser = $_POST["gituser"];
 	
 	if(isset($gituser))
