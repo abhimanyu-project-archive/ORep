@@ -51,6 +51,7 @@
 				
 			echo "<div align='right'><a href='logout.php'>Log Out</a></div>";
 			echo "Connect to:<a href='connectgit.php'>GitHub</a>";
+
 			$parameter="username=\"".$user."\"";
 			//echo $parameter;
 			$query="SELECT * FROM userinfo WHERE " . $parameter . ";";
@@ -62,6 +63,53 @@
 			$_SESSION['username'] = $user;
 			$userid=$row["userid"];
 			$gross=$row["globalpoint"];
+
+
+			$query = "select siteid from siteapi where sitename='github'";
+			$result = mysql_query($query);
+			$row = mysql_fetch_array($result);
+			$gitsiteid = $row['siteid'];
+
+			$query = "select gituserid from gitusers where userid='".$userid."'";
+			$result = mysql_query($query);
+			$rows = mysql_num_rows($result);
+			if($rows > 0)
+			{
+				$row = mysql_fetch_array($result);
+				$gituserid = $row['gituserid'];
+
+				$ch = curl_init();
+
+			        $url = "https://api.github.com/users/".$gituserid."/followers";
+
+        			curl_setopt($ch, CURLOPT_URL, $url);
+			        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+			        $json = curl_exec($ch);
+			        curl_close($ch);
+			        $obj = json_decode($json);
+
+			        //echo $json."\n";
+
+			        $numFollowers = count($obj);
+			       // echo $numFollowers;
+
+				$query = "select points from user_".$userid." where tag = 'opensource'";
+				$result = mysql_query($query);
+				$row = mysql_fetch_array($result);
+				$points = $row['points'];
+
+				$query = "update user_".$userid." set points='".$numFollowers."' where tag = opensource";
+				mysql_query($query);
+			
+				$query = "update userinfo set globalpoint=globalpoint-'".$points."' + '".$numFollowers."' where userid='".$userid."'";
+				mysql_query($query);
+			}
+			
+
+			
+
+
 			echo "<br><br><div align='center'>";
 			echo "<strong>welcome" . $user . "</strong>";
 			echo "<br>";
