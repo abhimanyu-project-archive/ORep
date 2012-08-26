@@ -4,6 +4,10 @@
 <head>
 
 <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+
 <?php 
 	 session_start();
 	 include 'connect_db.php';
@@ -164,8 +168,6 @@
 	
 
 ?>
-</head>
-<body>
 
 <form id='login' action='profile.php' method='post' accept-charset='UTF-8'>
         <fieldset >
