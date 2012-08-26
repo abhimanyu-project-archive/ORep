@@ -72,7 +72,7 @@
 			$result1=NULL;	
 			$result1 = mysql_query($query, $con);
 			echo "<table width=100%>";
-			echo "<td> </td>";
+			echo "<td> echo "       ";</td>";
 			echo "<td align='left'>";
 			while($row=mysql_fetch_array($result1))
 			{
