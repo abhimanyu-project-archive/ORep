@@ -73,6 +73,7 @@
 			$result1 = mysql_query($query, $con);
 			echo "<table width=100%>";
 			echo "<td> </td>";
+			echo "<td> </td>"
 			echo "<td align='center'>";
 			while($row=mysql_fetch_array($result1))
 			{
