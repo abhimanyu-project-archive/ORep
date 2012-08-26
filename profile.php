@@ -68,22 +68,26 @@
 			echo "</div>";	
 
 			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points) DESC;";
-			$result=NULL;	
+			$result=NULL;
+			$result1=NULL;	
 			$result1 = mysql_query($query, $con);
 			echo "<table width=100%>";
 			echo "<td> </td>";
 			echo "<td align='center'>";
 			while($row=mysql_fetch_array($result1))
 			{
-				
-				echo "<br>" . $row["siteid"];
+				$query="SELECT sitename  FROM siteapi WHERE siteid=" . $row["siteid"];	
+				$result=mysql_query($query, $con);
+				$row1=mysql_fetch_array($result);
+				echo "<br>" . $row1["sitename"];
 				//echo "<br>Area Tag:" . $row["tag"];	
 				echo "   :";
 				printf("%.2f",$row["SUM(points)"]);
 			}
 			echo "</td>";
 			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points) DESC;";
-                        $result=NULL;   
+                        $result1=NULL; 
+				  
                         $result1 = mysql_query($query, $con);
 			echo "<td align='left'>";
                         while($row=mysql_fetch_array($result1))
