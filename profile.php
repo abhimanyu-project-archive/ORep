@@ -53,7 +53,7 @@
 		if($flag == true)
 		{
 				
-			echo "<div align='right'><a href='logout.php'>Log Out</a></div>";
+			echo "<div style="width:200px;background:white" onmouseover="this.style.background='gray';" onmouseout="this.style.background='white' align='right'><a href='logout.php'>Log Out</a>";
 			echo "Connect to:<a href='connectgit.php'>GitHub</a>";
 
 			$parameter="username=\"".$user."\"";
@@ -125,7 +125,8 @@
 
 			echo "<br><br><div align='center'>";
 			echo "<strong>Welcome " . $user . "</strong>";
-			echo "<hr>";
+			echo "<hr></div>";
+			
 			echo "<br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
 			echo "</div>";
