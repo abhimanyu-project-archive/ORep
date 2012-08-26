@@ -70,7 +70,9 @@
 			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points) DESC;";
 			$result=NULL;	
 			$result1 = mysql_query($query, $con);
-			echo "<table width=100%><td align='center'>";
+			echo "<table width=100%>";
+			echo "<td> </td>";
+			echo "<td align='center'>";
 			while($row=mysql_fetch_array($result1))
 			{
 				
