@@ -74,9 +74,9 @@
 			while($row=mysql_fetch_array($result1))
 			{
 				
-				echo "<br>SiteId:" . $row["siteid"];
+				echo "<br>" . $row["siteid"];
 				//echo "<br>Area Tag:" . $row["tag"];	
-				echo "   Points:" . $row["SUM(points)"];
+				echo "   :" . $row["SUM(points)"];
 			}
 			echo "</td>";
 			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points) DESC;";
@@ -87,8 +87,8 @@
                         {
                                 
                                 //echo "<br>SiteId:" . $row["siteid"];
-                                echo "<br>Area Tag:" . $row["tag"];   
-                                echo "   Points:" . $row["SUM(points)"];
+                                echo "<br>" . $row["tag"];   
+                                echo "   :" . $row["SUM(points)"];
                         }
 
 			echo "</td></table>";
