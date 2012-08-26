@@ -89,7 +89,7 @@
 	<fieldset >
 		<div id = "signupform" align="center">
 		<legend>Register</legend>
-		<font color = "Red"><h3><?=$usernameexists?></h3></font>
+		<font color = "Red"><h4><?=$usernameexists?></h4></font>
 		<input type='hidden' name='submitted' id='submitted' value='1'/>
 		UserName*:&nbsp <input type='text' name='username' id='username'  maxlength="50"/>
 		<br>
