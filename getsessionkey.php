@@ -44,7 +44,7 @@ function getssid()
    else
    {
 	$ssid=random_gen(20);
-	$qstring ="'".$siteid."','".$ssid."'";
+	$qstring ="'".$siteid."','".$ssid."',''";
 	$query="INSERT into ssidtable values (".$qstring.");";	
 	$insert_result=mysql_query($query,$con);
 	$result['res']=true;
