@@ -76,7 +76,7 @@
 			echo "<td align='center'>";
 			while($row=mysql_fetch_array($result1))
 			{
-				$query="SELECT sitename  FROM siteapi WHERE siteid=" . $row["siteid"];	
+				$query="SELECT sitename  FROM siteapi WHERE siteid=" . $row["siteid"] . ";";	
 				echo $query;	
 				$result=mysql_query($query, $con);
 				echo $result;
