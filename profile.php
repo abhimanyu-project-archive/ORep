@@ -89,7 +89,7 @@
                                 //echo "<br>SiteId:" . $row["siteid"];
                                 echo "<br>" . $row["tag"];   
                                 echo "   :";
-				printf(".2%f",$row["SUM(points)"]);
+				printf("%.2f",$row["SUM(points)"]);
                         }
 
 			echo "</td></table>";
