@@ -124,7 +124,7 @@
 			echo "<br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
 			echo "</div>";	
-
+			echo "</hr>";
 			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points) DESC;";
 			$result=NULL;
 			$result1=NULL;	
@@ -158,6 +158,7 @@
                         }
 
 			echo "</td></table>";
+			echo "</br></br></br></hr>";
 			die();
 		}
 	
