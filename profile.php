@@ -48,8 +48,9 @@
 	}
 		if($flag == true)
 		{
-			echo "Connect to:<a href='profile.php'>site</a>";	
+				
 			echo "<div align='right'><a href='logout.php'>Log Out</a></div>";
+			echo "Connect to:<a href='profile.php'>site</a>";
 			$parameter="username=\"".$user."\"";
 			//echo $parameter;
 			$query="SELECT * FROM userinfo WHERE " . $parameter . ";";
