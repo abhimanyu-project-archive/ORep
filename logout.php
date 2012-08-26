@@ -5,8 +5,10 @@
 <?php
 session_start();
 unset($_SESSION['username']);
-echo "Logged Out!";
-echo "<a href='profile.php'>Go to Login Page</a>";
+echo "<div align='center'>";
+echo "<br><br><br><cite>Logged Out!</cite>";
+echo "<br><br><strong><a href='profile.php'>Go to Login Page</a></strong>";
+echo "</div>";
 ?>
 </head>
 </html>
