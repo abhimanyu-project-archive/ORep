@@ -94,8 +94,10 @@
 						if($flag == true)
 						{
 							$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
+							echo $query;
 							mysql_query($query);
 							$query = "update ssidtable set siteuserid='".$siteuserid."' where ssid='".$ssid."'";
+							echo $query;
 							mysql_query($query);
 						}
 					}
