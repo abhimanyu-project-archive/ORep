@@ -35,11 +35,12 @@
 		{
 			//$ssidaccess = new mysql("ssidtable");
 			$query = "select * from ssidtable where ssid='".$ssid."'";
-			echo $query."\n";
+			echo $query;
 			//$parameter = "ssid=\"".$ssid."\"";
 
 			$result = mysql_query($query);
 			$num_rows = mysql_num_rows($result);
+			echo $num_rows;
 			//$row = mysql_fetch_array($result);
 			if($num_rows > 0)
 			{
