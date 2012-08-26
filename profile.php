@@ -53,7 +53,7 @@
 		if($flag == true)
 		{
 				
-			echo '<a href=\'logout.php\'>Log Out</a>';
+			echo '<div align="right"><a href=\'logout.php\'>Log Out</a></div>';
 			echo "Connect to:<a href='connectgit.php'>GitHub</a>";
 
 			$parameter="username=\"".$user."\"";
