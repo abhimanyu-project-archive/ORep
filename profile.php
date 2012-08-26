@@ -124,11 +124,11 @@
 
 
 			echo "<br><br><div align='center'>";
-			echo "<strong>welcome" . $user . "</strong>";
+			echo "<strong>Welcome " . $user . "</strong>";
+			echo "<hr>";
 			echo "<br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
-			echo "</div>";	
-			echo "</hr>";
+			echo "</div>";
 			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points) DESC;";
 			$result=NULL;
 			$result1=NULL;	
@@ -188,5 +188,7 @@
 <div align="center">
 <a href="signup.php" ><b>Register with ORep!</b></a>
 </div>
+
+<hr>
 </body>
 </html>
