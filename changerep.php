@@ -1,10 +1,10 @@
 <?php
 //Author  : Mangat Rai Modi [mangatmodi@gmail.com]
-//version : 1.3.1
-//Updated : 05:17	 26,aug,2012
+//version : 2.0
+//Updated : 06:31	 26,aug,2012
 //Description : It changes/display points of the user
 
-require_once('connect_db1.php');//Change when hosted  server!!
+require_once('connect_db.php');//Change when hosted  server!!
 require('mysql_class.php');
 
 //GETTING VALUES FROM URL
@@ -108,8 +108,8 @@ if($num_rows3 > 0){//SITE IS VALID
 	//	echo $query2;
 		$ans2 = mysql_fetch_array(mysql_query($query2, $con));
 		$gross_site =  $ans2['OrderTotal'];
-		if($mysite == 1){ //SITE ONLY
-		
+	
+	
 		//CREATING THE TAG QUERY STRING
 		$total = count($tag_array);
 		$n =0;
@@ -122,6 +122,7 @@ if($num_rows3 > 0){//SITE IS VALID
 //		echo $tag_string;
 		
 		//-------------------------
+		if($mysite == 1){ //SITE ONLY
 		$query3 = "SELECT SUM( points ) AS OrderTotal FROM ".$temp." WHERE siteid = '".$siteid."' && ( tag='".$tag_string."')";
 		//echo $query3;
 		$ans3 = mysql_fetch_array(mysql_query($query3, $con));
@@ -139,8 +140,45 @@ if($num_rows3 > 0){//SITE IS VALID
 			}
 		}
 		if($mysite == 0){ //Global
+		//	echo "hello";
+			$map = array();
+			$query5 = "select siteid,weight from siteinfo";
 
+    			//WEIGHT TABLE FORMED
+
+			$get_weight = mysql_query($query5, $con);
+			while($ans5 = mysql_fetch_array($get_weight)){
+				$siteid_temp = $ans5['siteid'];
+				$map[$siteid_temp] = floatval($ans5['weight']);
+				}
+			//GLOBAL TAG TABLE
+		$query4 = "SELECT tag,points,siteid FROM ".$temp." WHERE ( tag='".$tag_string."')";
+		//echo $query4;
+		$tag_res = mysql_query($query4, $con);
+		$site_tags = array();
+		while($ans4 = mysql_fetch_array($tag_res)){
+			$sitetemp = $ans4['siteid'];
+		//	echo $sitetemp;
+			$tag_temp = $ans4['tag']; //we have to push tag => points
+			$site_tags[$tag_temp] = $site_tags[$tag_temp] + (intval($ans4['points']))*($map[$sitetemp]);
+			}
+
+			//echo json_encode($site_tags);
+		//NOW GETTING GLOBAL SUM  GIVING TAG
+		$sum = 0;
+		$n = 0;
+	//	echo count($site_tags);
+		$hell = array_keys($site_tags);
+	//	echo $hell[0];
+	while($n<count($site_tags)){
+	$a =  $hell[$n];
+		$sum = $sum + $site_tags[$a];
+		$n = $n + 1;
+//
 		}
+	
+	//	echo $sum;
+	}
 	}
 	}	
 	else{
