@@ -15,6 +15,7 @@
 		// Connecting to the database
 		$con = mysql_connect(server, username, password);
 		$db = mysql_select_db(database, $con) or die("Unable to select database");
+		global $siteuserid;
 	?>
 
 
@@ -91,7 +92,7 @@
 							}
 						}
 
-						if($flag == true)
+						if($flag1 == true)
 						{
 							$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
 							echo $query;
