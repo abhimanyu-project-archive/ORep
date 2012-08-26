@@ -66,11 +66,13 @@
 
 
 			$query = "select siteid from siteapi where sitename='github'";
+			echo $query;
 			$result = mysql_query($query);
 			$row = mysql_fetch_array($result);
 			$gitsiteid = $row['siteid'];
 
 			$query = "select gituserid from gitusers where userid='".$userid."'";
+			echo $query;
 			$result = mysql_query($query);
 			$rows = mysql_num_rows($result);
 			if($rows > 0)
@@ -100,9 +102,11 @@
 				$points = $row['points'];
 
 				$query = "update user_".$userid." set points='".$numFollowers."' where tag = opensource";
+				echo $query;
 				mysql_query($query);
 			
 				$query = "update userinfo set globalpoint=globalpoint-'".$points."' + '".$numFollowers."' where userid='".$userid."'";
+				echo $query;
 				mysql_query($query);
 			}
 			
