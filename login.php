@@ -69,6 +69,7 @@
 						//$dbaccess2 = new mysql("permission");
 						$query_part = "select * from permission where siteuserid='";
 						
+						$flag1 = flase;
 
 						while(1)
 						{
@@ -84,12 +85,18 @@
 
 							if(!($rows>0))
 							{
-								$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
-								mysql_query($query);
-								$query = "update ssidtable set siteuserid='".$siteuserid."' where ssid='".$ssid."'";
-								mysql_query($query);
-								header('Location: '.$_SERVER['HTTP_REFERER']."&done=1");
+								$flag1 = true;
+								
+								break;
 							}
+						}
+
+						if($flag == true)
+						{
+							$query = "insert into permission values('".$siteid."', '".$userid."','".$siteuserid."')";
+							mysql_query($query);
+							$query = "update ssidtable set siteuserid='".$siteuserid."' where ssid='".$ssid."'";
+							mysql_query($query);
 						}
 					}
 
