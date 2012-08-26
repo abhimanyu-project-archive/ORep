@@ -76,19 +76,21 @@
 				
 				echo "<br>" . $row["siteid"];
 				//echo "<br>Area Tag:" . $row["tag"];	
-				echo "   :" . $row["SUM(points)"];
+				echo "   :";
+				printf("%.2f",$row["SUM(points)"]);
 			}
 			echo "</td>";
 			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points) DESC;";
                         $result=NULL;   
                         $result1 = mysql_query($query, $con);
-			echo "<td align='center'>";
+			echo "<td align='left'>";
                         while($row=mysql_fetch_array($result1))
                         {
                                 
                                 //echo "<br>SiteId:" . $row["siteid"];
                                 echo "<br>" . $row["tag"];   
-                                echo "   :" . $row["SUM(points)"];
+                                echo "   :";
+				printf("%.2f",$row["SUM(points)"]);
                         }
 
 			echo "</td></table>";
