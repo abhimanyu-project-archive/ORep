@@ -76,7 +76,8 @@
 				
 				echo "<br>" . $row["siteid"];
 				//echo "<br>Area Tag:" . $row["tag"];	
-				echo "   :" . $row["SUM(points)"];
+				echo "   :";
+				printf("%.2f",$row["SUM(points)"]);
 			}
 			echo "</td>";
 			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points) DESC;";
