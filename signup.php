@@ -71,7 +71,8 @@
 						//echo $query."\n";
 						mysql_query($query);
 						echo "successfully registered";
-						die('');
+						header('Location: http://orep.manyu.in');
+						//die('');
 						break;
 					}
 				}
