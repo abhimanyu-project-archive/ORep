@@ -21,12 +21,12 @@
 		$username=$_SESSION['username'];
 		$query = "select userid from userinfo where username='".$username."'";
 		echo $query;
-		die();
-
+	
 		$result = mysql_query($query);
 		$row = mysql_fetch_array($result);
+		$userid = $row['userid'];
 
-		$query = "insert into gitusers values('".$row['userid']."', '".$gituser."')";
+		$query = "insert into gitusers values('".$userid."', '".$gituser."')";
 		echo $query;
 		mysql_query($query);		
 
