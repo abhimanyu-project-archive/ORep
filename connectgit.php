@@ -20,19 +20,24 @@
 	{
 		$username=$_SESSION['username'];
 		$query = "select userid from userinfo where username='".$username."'";
+		echo $query;
 
 		$result = mysql_query($query);
 		$row = mysql_fetch_array($result);
 
 		$query = "insert into gitusers values('".$row['userid']."', '".$gituser."')";
+		echo $query;
 		mysql_query($query);		
 
+
 		$query = "select siteid from siteapi where sitename='".$sitename."'";
+		echo $query;
 		$result = mysql_query($query);
 		$row = mysql_fetch_array($result);
 		$siteid = $row['siteid'];
 
 		$query = "insert into user_".$userid."values('".$siteid."', 'opensource', '0')";
+		mysql_query($query);
 		header('Location: http://orep.manyu.in/profile.php');
 	}
 
