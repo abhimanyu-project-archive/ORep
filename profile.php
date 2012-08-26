@@ -53,7 +53,7 @@
 		if($flag == true)
 		{
 				
-			echo '<div style="background:white"><a href=\'logout.php\'>Log Out</a>';
+			echo '<a href=\'logout.php\'>Log Out</a>';
 			echo "Connect to:<a href='connectgit.php'>GitHub</a>";
 
 			$parameter="username=\"".$user."\"";
@@ -123,11 +123,11 @@
 			
 
 
-			echo "<br><br><div align='center'>";
+			echo "<br><br><div style='backgournd:gray' align='center'>";
 			echo "<strong>Welcome " . $user . "</strong>";
 			echo "<hr></div>";
 			
-			echo "<br>";
+			echo "<div align='center'><br>";
 			echo "<br><cite>Gross:" . $gross . "</cite>";	
 			echo "</div>";
 			$query="SELECT siteid,SUM(points) FROM user_".$userid." GROUP BY siteid ORDER BY SUM(points) DESC;";
