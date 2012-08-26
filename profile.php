@@ -6,7 +6,7 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 
-<body>
+<body bgcolor="#C0C0C0">
 
 <?php 
 	 session_start();
