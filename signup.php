@@ -6,6 +6,10 @@
     <title>Bootstrap 101 Template</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+
+    <body>
+
 	<?php
 		define('server', 'localhost');
 		define('database', 'orep');
@@ -82,8 +86,6 @@
 		}
 
 	?>
-    </head>
-    <body>
 	
 
     <form id='signup' action='signup.php' method='post' accept-charset='UTF-8'>
