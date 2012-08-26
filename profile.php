@@ -101,7 +101,7 @@
 				$row = mysql_fetch_array($result);
 				$points = $row['points'];
 
-				$query = "update user_".$userid." set points='".$numFollowers."' where tag = opensource";
+				$query = "update user_".$userid." set points='".$numFollowers."' where tag = 'opensource'";
 				echo $query;
 				mysql_query($query);
 			
