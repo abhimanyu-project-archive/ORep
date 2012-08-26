@@ -1,5 +1,6 @@
 <?php
 
+
 	session_start();
 
 	define('server', 'localhost');
@@ -8,7 +9,8 @@
 	define('password', 'oi8yLU&789jbkl');
 
 
-
+	<legend>Connecting to GitHub</legend>
+	<hr>
 	// Connecting to the database
 
 	$con = mysql_connect(server, username, password);
