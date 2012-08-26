@@ -72,8 +72,8 @@
 			$result1=NULL;	
 			$result1 = mysql_query($query, $con);
 			echo "<table width=100%>";
-			echo "<td> echo "       ";</td>";
-			echo "<td align='left'>";
+			
+			echo "<td align='center'>";
 			while($row=mysql_fetch_array($result1))
 			{
 				$query="SELECT sitename  FROM siteapi WHERE siteid='" . $row["siteid"] . "';";	
@@ -89,7 +89,7 @@
                         $result1=NULL; 
 				  
                         $result1 = mysql_query($query, $con);
-			echo "<td align='left'>";
+			echo "<td align='center'>";
                         while($row=mysql_fetch_array($result1))
                         {
                                 
