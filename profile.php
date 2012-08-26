@@ -49,7 +49,7 @@
 		if($flag == true)
 		{
 			
-			echo "<a href='logout.php'>Log Out</a>";
+			echo "<div align='right'><a href='logout.php'>Log Out</a></div>";
 			$parameter="username=\"".$user."\"";
 			//echo $parameter;
 			$query="SELECT * FROM userinfo WHERE " . $parameter . ";";
