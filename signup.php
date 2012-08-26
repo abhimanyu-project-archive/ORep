@@ -40,12 +40,13 @@
 			//echo $rows;
 			if($rows > 0)
 			{
-				echo "The username already exists";
+				$usernameexists = "User Name Already Exists";
 
 			}
 			else
 			{
 				
+				$usernameexists = "";
 				//echo "generating uid\n";
 				$userid = random_gen(20);
 				//echo "userid: ". $userid. "\n";
@@ -88,6 +89,7 @@
 	<fieldset >
 		<div id = "signupform" align="center">
 		<legend>Register</legend>
+		<font color = "Red"><h3><?=$usernameexists?></h3></font>
 		<input type='hidden' name='submitted' id='submitted' value='1'/>
 		UserName*:&nbsp <input type='text' name='username' id='username'  maxlength="50"/>
 		<br>
