@@ -158,7 +158,7 @@
                         {
                                 
                                 //echo "<br>SiteId:" . $row["siteid"];
-                                echo "<br>" . $row["tag"];   
+                                echo "<br><h3>#" . $row["tag"]."</h3>";   
                                 echo "   :";
 				printf("%.2f",$row["SUM(points)"]);
                         }
