@@ -34,6 +34,7 @@
 		if(isset($ssid) || isset($submitted))		
 		{
 			//$ssidaccess = new mysql("ssidtable");
+			echo $ssid;
 			$query = "select * from ssidtable where ssid='".$ssid."'";
 			echo $query;
 			//$parameter = "ssid=\"".$ssid."\"";
