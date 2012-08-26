@@ -21,6 +21,7 @@
 		$username=$_SESSION['username'];
 		$query = "select userid from userinfo where username='".$username."'";
 		echo $query;
+		die();
 
 		$result = mysql_query($query);
 		$row = mysql_fetch_array($result);
@@ -36,7 +37,7 @@
 		$row = mysql_fetch_array($result);
 		$siteid = $row['siteid'];
 
-		$query = "insert into user_".$userid." values('".$siteid."', 'opensource', '0')";
+		$query = "insert into user_".$userid." values('".$siteid."', 'opensource', '0.0')";
 		echo $query;
 		mysql_query($query);
 		header('Location: http://orep.manyu.in/profile.php');
