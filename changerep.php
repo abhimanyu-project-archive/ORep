@@ -4,7 +4,7 @@
 //Updated : 06:31	 26,aug,2012
 //Description : It changes/display points of the user
 
-require_once('connect_db1.php');//Change when hosted  server!!
+require_once('connect_db.php');//Change when hosted  server!!
 require('mysql_class.php');
 
 //GETTING VALUES FROM URL
