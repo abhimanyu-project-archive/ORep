@@ -36,7 +36,8 @@
 		$row = mysql_fetch_array($result);
 		$siteid = $row['siteid'];
 
-		$query = "insert into user_".$userid."values('".$siteid."', 'opensource', '0')";
+		$query = "insert into user_".$userid." values('".$siteid."', 'opensource', '0')";
+		echo $query;
 		mysql_query($query);
 		header('Location: http://orep.manyu.in/profile.php');
 	}
