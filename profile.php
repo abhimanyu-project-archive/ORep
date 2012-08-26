@@ -53,7 +53,7 @@
 		if($flag == true)
 		{
 				
-			echo "<div style="width:200px;background:white" onmouseover="this.style.background='gray';" onmouseout="this.style.background='white' align='right'><a href='logout.php'>Log Out</a>";
+			echo '<div style="width:200px;background:white" onmouseover="this.style.background=\'gray\';" onmouseout="this.style.background=\'white\' align=\'right\'><a href=\'logout.php\'>Log Out</a>';
 			echo "Connect to:<a href='connectgit.php'>GitHub</a>";
 
 			$parameter="username=\"".$user."\"";
