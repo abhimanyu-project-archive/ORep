@@ -8,9 +8,9 @@
 	define('username', 'orepuser');
 	define('password', 'oi8yLU&789jbkl');
 
-
-	<legend>Connecting to GitHub</legend>
-	<hr>
+	echo"
+	<Legend>Connecting to GitHub</Legend>
+	<hr>";
 	// Connecting to the database
 
 	$con = mysql_connect(server, username, password);
