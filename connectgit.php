@@ -31,7 +31,7 @@
 		mysql_query($query);		
 
 
-		$query = "select siteid from siteapi where sitename='".$sitename."'";
+		$query = "select siteid from siteapi where sitename='github'";
 		echo $query;
 		$result = mysql_query($query);
 		$row = mysql_fetch_array($result);
