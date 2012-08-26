@@ -77,7 +77,9 @@
 			while($row=mysql_fetch_array($result1))
 			{
 				$query="SELECT sitename  FROM siteapi WHERE siteid=" . $row["siteid"];	
+				
 				$result=mysql_query($query, $con);
+				echo $result;
 				$row1=mysql_fetch_array($result);
 				echo "<br>" . $row1["sitename"];
 				//echo "<br>Area Tag:" . $row["tag"];	
