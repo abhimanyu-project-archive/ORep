@@ -6,7 +6,7 @@ function getssid()
 {
     $result = array(
                'res' => false,
-               'ssid' => "",
+               'suid' => "",
                'error' => "",
               );
     if(empty($_GET['ssid']))
@@ -23,18 +23,18 @@ function getssid()
     $auth_table = NULL;
     $auth_table = mysql_query($query, $con);
     //echo $auth_table;
-    $row=mysql_fetch_row($auth_table)
-    if (!$row)
-   {
-	$result['res']=false;
-        $result['error']="Authentication failed";
-        return $result;
-   }
-   else
+    if ($row=mysql_fetch_array($auth_table))
    {
 	$result['res']=true;
         $result['suid']=$row['siteuserid'];  
 	return $result;
+   }
+   else
+   {
+	
+	$result['res']=false;
+        $result['error']="Authentication failed";
+        return $result;
    }
 }
 
