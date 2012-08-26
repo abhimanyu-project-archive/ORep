@@ -84,7 +84,7 @@
 								mysql_query($query);
 								$query = "update ssidtable set siteuserid='".$siteuserid."' where ssid='".$ssid."'";
 								mysql_query($query);
-								break;
+								header('Location: '.$_SERVER['HTTP_SERVER']."&done=1");
 							}
 						}
 					}
