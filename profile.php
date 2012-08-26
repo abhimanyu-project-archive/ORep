@@ -73,8 +73,7 @@
 			$result1 = mysql_query($query, $con);
 			echo "<table width=100%>";
 			echo "<td> </td>";
-			echo "<td> </td>";
-			echo "<td align='center'>";
+			echo "<td align='right'>";
 			while($row=mysql_fetch_array($result1))
 			{
 				$query="SELECT sitename  FROM siteapi WHERE siteid='" . $row["siteid"] . "';";	
