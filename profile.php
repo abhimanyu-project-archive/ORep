@@ -145,8 +145,9 @@
 				$row1=mysql_fetch_array($result);
 				echo "<br><h3>@" . $row1["sitename"]."</h3>";
 				//echo "<br>Area Tag:" . $row["tag"];	
-				echo "   :";
+				echo "  <h4> :";
 				printf("%.2f",$row["SUM(points)"]);
+				echo "</h4>";
 			}
 			echo "</td>";
 			$query="SELECT tag,SUM(points) FROM user_".$userid." GROUP BY tag ORDER BY SUM(points) DESC;";
@@ -159,8 +160,9 @@
                                 
                                 //echo "<br>SiteId:" . $row["siteid"];
                                 echo "<br><h3>#" . $row["tag"]."</h3>";   
-                                echo "   :";
+                                echo "  <h4> :";
 				printf("%.2f",$row["SUM(points)"]);
+				echo "</h4>";
                         }
 
 			echo "</td></table>";
